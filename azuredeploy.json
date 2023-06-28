@@ -1,0 +1,321 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "VMName": {
+            "type": "string",
+            "metadata": {
+                "description": "VM Name and convention your company uses, be sure to entice naming EX. vm-fileshares-prod-eastus-003"
+            },
+            "defaultValue": "vm-fileshares-prod-eastus-003"
+        },
+        "virtualNetworkId": {
+            "type": "string",
+            "metadata": {
+                "description": "Virtual Network Resource ID to Deploy Azure VM into"
+            }
+        },
+        "subnetName": {
+            "type": "string",
+            "metadata": {
+                "description": "Virtual Network Subnet Name to Deploy Azure VM into"
+            }
+        },
+        "MyConnectionIP": {
+            "type": "string",
+            "minLength": 7,
+            "maxLength": 15,
+            "metadata": {
+                "description": "The Public IP I will be connecting from to administer and configure"
+            },
+            "defaultValue": "XXX.XXX.XXX.XXX"
+        },
+        "adminUsername": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Admin user name for Linux VM"
+            }
+        },
+        "authenticationType": {
+            "type": "string",
+            "defaultValue": "password",
+            "allowedValues": [
+                "sshPublicKey",
+                "password"
+            ],
+            "metadata": {
+                "description": "Type of authentication to use on the Virtual Machine. SSH key is recommended."
+            }
+        },
+        "adminPasswordOrKey": {
+            "type": "securestring",
+            "metadata": {
+                "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+            }
+        }
+    },
+    "variables": {
+        "vnetId": "[parameters('virtualNetworkId')]",
+        "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
+        "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+                "ssh": {
+                    "publicKeys": [
+                        {
+                            "path": "[format('/home/{0}/.ssh/authorized_keys', parameters('adminUsername'))]",
+                            "keyData": "[parameters('adminPasswordOrKey')]"
+                        }
+        ]
+      }
+    }
+    },
+    "resources": [
+        {
+            "name": "[concat(uniqueString(resourceGroup().id, deployment().name),'-nic')]",
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2021-08-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups/', concat(uniqueString(resourceGroup().id, deployment().name),'-nsg'))]",
+                "[resourceId('Microsoft.Network/publicIpAddresses', concat(uniqueString(resourceGroup().id, deployment().name),'-pip'))]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "subnet": {
+                                "id": "[variables('subnetRef')]"
+                            },
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIpAddress": {
+                                "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/publicIpAddresses', concat(uniqueString(resourceGroup().id, deployment().name),'-pip'))]",
+                                "properties": {
+                                    "deleteOption": "Detach"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "enableAcceleratedNetworking": true,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups/', concat(uniqueString(resourceGroup().id, deployment().name),'-nsg'))]"
+                }
+            }
+        },
+        {
+            "name": "[concat(uniqueString(resourceGroup().id, deployment().name),'-nsg')]",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2019-02-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+            "securityRules": [
+            {
+                "name": "AllowAzureCloud22Inbound",
+                "properties": {
+                    "protocol": "*",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "22",
+                    "sourceAddressPrefix": "AzureCloud",
+                    "destinationAddressPrefix": "*",
+                    "access": "Allow",
+                    "priority": 1011,
+                    "direction": "Inbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            },
+            {
+                "name": "AllowCustom64294Inbound",
+                "properties": {
+                    "protocol": "*",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "64294",
+                    "sourceAddressPrefix": "[parameters('MyConnectionIP')]",
+                    "destinationAddressPrefix": "*",
+                    "access": "Allow",
+                    "priority": 1021,
+                    "direction": "Inbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            },
+            {
+                "name": "AllowSSHCustom64295Inbound",
+                "properties": {
+                    "protocol": "*",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "64295",
+                    "sourceAddressPrefix": "[parameters('MyConnectionIP')]",
+                    "destinationAddressPrefix": "*",
+                    "access": "Allow",
+                    "priority": 1031,
+                    "direction": "Inbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            },
+            {
+                "name": "AllowAzureCloud64295Inbound",
+                "properties": {
+                    "protocol": "*",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "64295",
+                    "sourceAddressPrefix": "AzureCloud",
+                    "destinationAddressPrefix": "*",
+                    "access": "Allow",
+                    "priority": 1041,
+                    "direction": "Inbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            },
+            {
+                "name": "AllowCustom64297Inbound",
+                "properties": {
+                    "protocol": "*",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "64297",
+                    "sourceAddressPrefix": "[parameters('MyConnectionIP')]",
+                    "destinationAddressPrefix": "*",
+                    "access": "Allow",
+                    "priority": 1051,
+                    "direction": "Inbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            },
+            {
+                "name": "AllowAllHomeOfficeCustomAnyInbound",
+                "properties": {
+                    "protocol": "*",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "*",
+                    "sourceAddressPrefix": "[parameters('MyConnectionIP')]",
+                    "destinationAddressPrefix": "*",
+                    "access": "Allow",
+                    "priority": 1061,
+                    "direction": "Inbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            }
+        ]
+            }
+        },
+        {
+            "name": "[concat(uniqueString(resourceGroup().id, deployment().name),'-pip')]",
+            "type": "Microsoft.Network/publicIpAddresses",
+            "apiVersion": "2020-08-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "publicIpAllocationMethod": "Static"
+            },
+            "sku": {
+                "name": "Standard"
+            },
+            "zones": [
+                "1"
+            ]
+        },
+        {
+            "name": "[parameters('VMName')]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2022-03-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', concat(uniqueString(resourceGroup().id, deployment().name),'-nic'))]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D4s_v3"
+                },
+                "storageProfile": {
+                    "osDisk": {
+                        "createOption": "fromImage",
+                        "managedDisk": {
+                            "storageAccountType": "StandardSSD_LRS"
+                        },
+                        "deleteOption": "Delete"
+                    },
+                    "imageReference": {
+                        "publisher": "debian",
+                        "offer": "debian-11",
+                        "sku": "11-gen2",
+                        "version": "latest"
+                    },
+                    "dataDisks": [
+                        {
+                            "name": "[concat(parameters('VMName'),'-datadisk')]",
+                            "diskSizeGB": 256,
+                            "lun": 0,
+                            "createOption": "Empty",
+                            "caching": "ReadWrite"
+                        }
+                    ]
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(uniqueString(resourceGroup().id, deployment().name),'-nic'))]",
+                            "properties": {
+                                "deleteOption": "Delete"
+                            }
+                        }
+                    ]
+                },
+                "osProfile": {
+                    "computerName": "[parameters('VMName')]",
+                    "adminUsername": "[parameters('adminUsername')]",
+                    "adminPassword": "[parameters('adminPasswordOrKey')]",
+                    "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), null(), variables('linuxConfiguration'))]"
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true
+                    }
+                }
+            },
+            "zones": [
+                "1"
+            ]
+        },
+        {
+          "apiVersion": "2015-06-15",
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "name": "[concat(parameters('VMName'),'/installcustomscript')]",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', concat(parameters('vmName')))]"
+          ],
+          "properties": {
+            "publisher": "Microsoft.Azure.Extensions",
+            "type": "CustomScript",
+            "typeHandlerVersion": "2.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "fileUris": [
+                "https://raw.githubusercontent.com/swiftsolves-msft/Azure-TPot/main/scripts/config-tpot.sh"
+              ]
+            },
+            "protectedSettings": {
+              "commandToExecute": "sudo sh config-tpot.sh"
+            }
+          }
+        }
+    ],
+    "outputs": {}
+}
