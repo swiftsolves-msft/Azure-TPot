@@ -43,16 +43,34 @@ sudo chmod 0600 /root/tpot.conf >> $LOGFILE 2>&1
 
  
 
-# install Tpot
-sudo /root/tpot/iso/installer/install.sh --type=auto --conf=/root/tpot.conf >> $LOGFILE 2>&1
+# Create tpot.yml
+sudo bash -c "cat > /opt/tpot/etc/tpot.yml <<EOF
+services:
+  ADBHONEY: true
+  CISCOTRACET: true
+  CITADEL: true
+  CONPOT: true
+  COWRIE: true
+  DIANE: true
+  DIONAEA: true
+  ELASTICPOT: true
+  HERALDING: true
+  HONEYTRAP: true
+  MAILONEY: true
+  MEDPOT: true
+  OPCUA: true
+  RDPPY: true
+  SNETS: true
+  SPIDER: true
+  SURICATA: true
+  TANNER: true
+mem_limit: HIGH
+EOF" >> $LOGFILE 2>&1
 
  
 
-# Check if tpot.yml is present
-if [[ ! -e /opt/tpot/etc/tpot.yml ]]; then
-    echo "Error: Missing tpot.yml file." >> $LOGFILE
-    exit 1
-fi
+# install Tpot
+sudo /root/tpot/iso/installer/install.sh --type=auto --conf=/root/tpot.conf >> $LOGFILE 2>&1
 
  
 
