@@ -10,6 +10,7 @@ sudo git clone https://github.com/telekom-security/tpotce /root/tpot
 # download config file
 sudo wget https://raw.githubusercontent.com/swiftsolves-msft/Azure-TPot/main/scripts/tpot.conf -O /root/tpot.conf
 sudo chmod 0600 /root/tpot.conf
+sudo wget https://github.com/telekom-security/tpotce/blob/master/etc/compose/standard.yml -O /opt/tpot/etc/tpot.yml
 
 # install Tpot
 sudo /root/tpot/iso/installer/install.sh --type=auto --conf=/root/tpot.conf
