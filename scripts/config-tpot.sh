@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# install dotnet core
+# update and install git
 sudo apt-get update
 sudo apt-get install -y git
 
@@ -14,6 +14,7 @@ sudo mkdir -p /opt/tpot/etc
 sudo wget https://github.com/telekom-security/tpotce/blob/master/etc/compose/standard.yml -O /opt/tpot/etc/tpot.yml
 
 # install Tpot
+sudo su
 sudo /root/tpot/iso/installer/install.sh --type=auto --conf=/root/tpot.conf
 
 # remove tpot.conf
