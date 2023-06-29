@@ -48,5 +48,13 @@ sudo /root/tpot/iso/installer/install.sh --type=auto --conf=/root/tpot.conf >> $
 
  
 
+# Check if tpot.yml is present
+if [[ ! -e /opt/tpot/etc/tpot.yml ]]; then
+    echo "Error: Missing tpot.yml file." >> $LOGFILE
+    exit 1
+fi
+
+ 
+
 # restart the server
-/sbin/shutdown -r now >> $LOGFILE 2>&1
+sudo /sbin/shutdown -r now >> $LOGFILE 2>&1
