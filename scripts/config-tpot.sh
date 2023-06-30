@@ -8,11 +8,11 @@ sudo apt-get install -y git
 sudo git clone https://github.com/telekom-security/tpotce /root/tpot
 
 # download config file
-sudo wget https://raw.githubusercontent.com/swiftsolves-msft/Azure-TPot/main/scripts/tpot.conf -O /root/tpot.conf
-sudo chmod 777 /root/tpot.conf
+sudo wget https://raw.githubusercontent.com/swiftsolves-msft/Azure-TPot/main/scripts/tpot.conf -O tpot.conf
+sudo chmod 777 tpot.conf
 
 # install Tpot
-sudo /root/tpot/iso/installer/install.sh --type=auto --conf=/root/tpot.conf
+sudo /root/tpot/iso/installer/install.sh --type=auto --conf=tpot.conf
 
 # remove tpot.conf
 rm /root/tpot.conf
