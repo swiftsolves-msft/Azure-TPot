@@ -14,9 +14,6 @@ sudo chmod 777 /root/tpot.conf
 # install Tpot
 sudo /root/tpot/iso/installer/install.sh --type=auto --conf=/root/tpot.conf
 
-# symlink
-sudo wget https://github.com/telekom-security/tpotce/blob/master/etc/compose/standard.yml -O /opt/tpot/etc/tpot.yml
-
 # remove tpot.conf
 rm /root/tpot.conf
 
