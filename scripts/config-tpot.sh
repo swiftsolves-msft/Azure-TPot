@@ -15,7 +15,7 @@ wget https://raw.githubusercontent.com/swiftsolves-msft/Azure-TPot/main/scripts/
 chmod 777 /root/tpot.conf
 
 # install Tpot
-/root/tpot/iso/installer/install.sh --type=auto --conf=/root/tpot.conf
+/root/tpot/iso/installer/installazurestandard.sh --type=auto --conf=/root/tpot.conf
 
 # remove tpot.conf
 rm tpot.conf
