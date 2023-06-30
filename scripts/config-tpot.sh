@@ -4,15 +4,18 @@
 sudo apt-get update
 sudo apt-get install -y git
 
+# Sudo time
+sudo su
+
 # download application
-sudo git clone https://github.com/telekom-security/tpotce /root/tpot
+git clone https://github.com/telekom-security/tpotce /root/tpot
 
 # download config file
-sudo wget https://raw.githubusercontent.com/swiftsolves-msft/Azure-TPot/main/scripts/tpot.conf -O tpot.conf
-sudo chmod 777 tpot.conf
+wget https://raw.githubusercontent.com/swiftsolves-msft/Azure-TPot/main/scripts/tpot.conf -O /root/tpot.conf
+chmod 777 /root/tpot.conf
 
 # install Tpot
-sudo /root/tpot/iso/installer/install.sh --type=auto --conf=tpot.conf
+/root/tpot/iso/installer/install.sh --type=auto --conf=/root/tpot.conf
 
 # remove tpot.conf
 rm tpot.conf
