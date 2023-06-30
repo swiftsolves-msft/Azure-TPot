@@ -8,7 +8,7 @@ sudo apt-get install -y git
 sudo su
 
 # download application
-git clone https://github.com/telekom-security/tpotce /root/tpot
+git clone https://github.com/swiftsolves-msft/tpotce /root/tpot
 
 # download config file
 wget https://raw.githubusercontent.com/swiftsolves-msft/Azure-TPot/main/scripts/tpot.conf -O /root/tpot.conf
