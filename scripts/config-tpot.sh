@@ -15,7 +15,7 @@ sudo chmod 777 tpot.conf
 sudo /root/tpot/iso/installer/install.sh --type=auto --conf=tpot.conf
 
 # remove tpot.conf
-rm /root/tpot.conf
+rm tpot.conf
 
 # Restart Server and Tpot
 /sbin/shutdown -r now
