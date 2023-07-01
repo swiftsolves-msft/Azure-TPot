@@ -312,7 +312,7 @@
               ]
             },
             "protectedSettings": {
-              "commandToExecute": "sudo sh config-tpot.sh"
+              "commandToExecute": "sh config-tpot.sh"
             }
           }
         }
