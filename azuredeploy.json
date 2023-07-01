@@ -281,7 +281,8 @@
                     "computerName": "[parameters('VMName')]",
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPasswordOrKey')]",
-                    "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), null(), variables('linuxConfiguration'))]"
+                    "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), null(), variables('linuxConfiguration'))]",
+                    "customData": "I2Nsb3VkLWNvbmZpZwp0aW1lem9uZTogVVMvRWFzdGVybgoKcGFja2FnZXM6CiAgLSBnaXQKCnJ1bmNtZDoKICAtIGN1cmwgLXNTIC0tcmV0cnkgNSBodHRwczovL2dpdGh1Yi5jb20KICAtIGdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vdGVsZWtvbS1zZWN1cml0eS90cG90Y2UgL3Jvb3QvdHBvdAogIC0gL3Jvb3QvdHBvdC9pc28vaW5zdGFsbGVyL2luc3RhbGwuc2ggLS10eXBlPWF1dG8gLS1jb25mPS9yb290L3Rwb3QuY29uZgogIC0gcm0gL3Jvb3QvdHBvdC5jb25mCiAgLSAvc2Jpbi9zaHV0ZG93biAtciBub3cKCnBhc3N3b3JkOiB3M2IkZWNyZXRzMiEKY2hwYXNzd2Q6CiAgZXhwaXJlOiBmYWxzZQoKd3JpdGVfZmlsZXM6CiAgLSBjb250ZW50OiB8CiAgICAgICMgdHBvdCBjb25maWd1cmF0aW9uIGZpbGUKICAgICAgbXlDT05GX1RQT1RfRkxBVk9SPSdTVEFOREFSRCcKICAgICAgbXlDT05GX1dFQl9VU0VSPSd3ZWJ1c2VyJwogICAgICBteUNPTkZfV0VCX1BXPSd3M2IkZWNyZXRzMiEnCiAgICBvd25lcjogcm9vdDpyb290CiAgICBwYXRoOiAvcm9vdC90cG90LmNvbmYKICAgIHBlcm1pc3Npb25zOiAnMDYwMCc="
                 },
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
@@ -292,29 +293,6 @@
             "zones": [
                 "1"
             ]
-        },
-        {
-          "apiVersion": "2015-06-15",
-          "type": "Microsoft.Compute/virtualMachines/extensions",
-          "name": "[concat(parameters('VMName'),'/installcustomscript')]",
-          "location": "[resourceGroup().location]",
-          "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', concat(parameters('vmName')))]"
-          ],
-          "properties": {
-            "publisher": "Microsoft.Azure.Extensions",
-            "type": "CustomScript",
-            "typeHandlerVersion": "2.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-              "fileUris": [
-                "https://raw.githubusercontent.com/swiftsolves-msft/Azure-TPot/main/scripts/config-tpot.sh"
-              ]
-            },
-            "protectedSettings": {
-              "commandToExecute": "sh config-tpot.sh"
-            }
-          }
         }
     ],
     "outputs": {}
