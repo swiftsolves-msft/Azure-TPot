@@ -54,6 +54,13 @@
             "metadata": {
                 "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
             }
+        },
+        "CloudInitB64Encoded": {
+            "type": "string",
+            "metadata": {
+                "description": "Cloud Init Configuration as a Base 64 encoded string, decode to examine a few variables to change and encode and submit"
+            },
+            "defaultValue": "I2Nsb3VkLWNvbmZpZwp0aW1lem9uZTogVVMvRWFzdGVybgoKcGFja2FnZXM6CiAgLSBnaXQKCnJ1bmNtZDoKICAtIGN1cmwgLXNTIC0tcmV0cnkgNSBodHRwczovL2dpdGh1Yi5jb20KICAtIGdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vdGVsZWtvbS1zZWN1cml0eS90cG90Y2UgL3Jvb3QvdHBvdAogIC0gL3Jvb3QvdHBvdC9pc28vaW5zdGFsbGVyL2luc3RhbGwuc2ggLS10eXBlPWF1dG8gLS1jb25mPS9yb290L3Rwb3QuY29uZgogIC0gcm0gL3Jvb3QvdHBvdC5jb25mCiAgLSAvc2Jpbi9zaHV0ZG93biAtciBub3cKCnBhc3N3b3JkOiB3M2IkZWNyZXRzMiEKY2hwYXNzd2Q6CiAgZXhwaXJlOiBmYWxzZQoKd3JpdGVfZmlsZXM6CiAgLSBjb250ZW50OiB8CiAgICAgICMgdHBvdCBjb25maWd1cmF0aW9uIGZpbGUKICAgICAgbXlDT05GX1RQT1RfRkxBVk9SPSdTVEFOREFSRCcKICAgICAgbXlDT05GX1dFQl9VU0VSPSd3ZWJ1c2VyJwogICAgICBteUNPTkZfV0VCX1BXPSd3M2IkZWNyZXRzMiEnCiAgICBvd25lcjogcm9vdDpyb290CiAgICBwYXRoOiAvcm9vdC90cG90LmNvbmYKICAgIHBlcm1pc3Npb25zOiAnMDYwMCc="
         }
     },
     "variables": {
@@ -283,7 +290,7 @@
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPasswordOrKey')]",
                     "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), null(), variables('linuxConfiguration'))]",
-                    "customData": "I2Nsb3VkLWNvbmZpZwp0aW1lem9uZTogVVMvRWFzdGVybgoKcGFja2FnZXM6CiAgLSBnaXQKCnJ1bmNtZDoKICAtIGN1cmwgLXNTIC0tcmV0cnkgNSBodHRwczovL2dpdGh1Yi5jb20KICAtIGdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vdGVsZWtvbS1zZWN1cml0eS90cG90Y2UgL3Jvb3QvdHBvdAogIC0gL3Jvb3QvdHBvdC9pc28vaW5zdGFsbGVyL2luc3RhbGwuc2ggLS10eXBlPWF1dG8gLS1jb25mPS9yb290L3Rwb3QuY29uZgogIC0gcm0gL3Jvb3QvdHBvdC5jb25mCiAgLSAvc2Jpbi9zaHV0ZG93biAtciBub3cKCnBhc3N3b3JkOiB3M2IkZWNyZXRzMiEKY2hwYXNzd2Q6CiAgZXhwaXJlOiBmYWxzZQoKd3JpdGVfZmlsZXM6CiAgLSBjb250ZW50OiB8CiAgICAgICMgdHBvdCBjb25maWd1cmF0aW9uIGZpbGUKICAgICAgbXlDT05GX1RQT1RfRkxBVk9SPSdTVEFOREFSRCcKICAgICAgbXlDT05GX1dFQl9VU0VSPSd3ZWJ1c2VyJwogICAgICBteUNPTkZfV0VCX1BXPSd3M2IkZWNyZXRzMiEnCiAgICBvd25lcjogcm9vdDpyb290CiAgICBwYXRoOiAvcm9vdC90cG90LmNvbmYKICAgIHBlcm1pc3Npb25zOiAnMDYwMCc="
+                    "customData": "[parameters('CloudInitB64Encoded')]"
                 },
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
