@@ -3,6 +3,10 @@
 
 The following deployment template will deploy a Standard T-Pot server on a Azure VM on a Network\Subnet of your choosing. [Click here to learn more on T-Pot](https://github.com/telekom-security/tpotce)
 
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fswiftsolves-msft%2FAzure-TPot%2Fmain%2Fazuredeploy.json)
+[![Deploy To Azure US Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fswiftsolves-msft%2FAzure-TPot%2Fmain%2Fazuredeploy.json)
+[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fswiftsolves-msft%2FAzure-TPot%2Fmain%2Fazuredeploy.json)
+
 ## Install Instructions
 
  1. Update the VM Name to reflect your naming convention and taxonomy.  
@@ -56,10 +60,6 @@ B64 Example:
     I2Nsb3VkLWNvbmZpZwp0aW1lem9uZTogVVMvRWFzdGVybgoKcGFja2FnZXM6CiAgLSBnaXQKCnJ1bmNtZDoKICAtIGN1cmwgLXNTIC0tcmV0cnkgNSBodHRwczovL2dpdGh1Yi5jb20KICAtIGdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vdGVsZWtvbS1zZWN1cml0eS90cG90Y2UgL3Jvb3QvdHBvdAogIC0gL3Jvb3QvdHBvdC9pc28vaW5zdGFsbGVyL2luc3RhbGwuc2ggLS10eXBlPWF1dG8gLS1jb25mPS9yb290L3Rwb3QuY29uZgogIC0gcm0gL3Jvb3QvdHBvdC5jb25mCiAgLSAvc2Jpbi9zaHV0ZG93biAtciBub3cKCnBhc3N3b3JkOiB3M2IkZWNyZXRzMiEKY2hwYXNzd2Q6CiAgZXhwaXJlOiBmYWxzZQoKd3JpdGVfZmlsZXM6CiAgLSBjb250ZW50OiB8CiAgICAgICMgdHBvdCBjb25maWd1cmF0aW9uIGZpbGUKICAgICAgbXlDT05GX1RQT1RfRkxBVk9SPSdTVEFOREFSRCcKICAgICAgbXlDT05GX1dFQl9VU0VSPSd3ZWJ1c2VyJwogICAgICBteUNPTkZfV0VCX1BXPSd3M2IkZWNyZXRzMiEnCiAgICBvd25lcjogcm9vdDpyb290CiAgICBwYXRoOiAvcm9vdC90cG90LmNvbmYKICAgIHBlcm1pc3Npb25zOiAnMDYwMCc=
 
 Click review and create, deployment of VM should take less than 5 minutes, however Cloud-Init will take some time, **typically 15 minutes** before T-Pot services are up and running.
-
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fswiftsolves-msft%2FAzure-TPot%2Fmain%2Fazuredeploy.json)
-[![Deploy To Azure US Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fswiftsolves-msft%2FAzure-TPot%2Fmain%2Fazuredeploy.json)
-[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fswiftsolves-msft%2FAzure-TPot%2Fmain%2Fazuredeploy.json)
 
 ## Post Install Instructions
 Install **may take around 15 minutes** for services to come up. Check to make sure from your public IP you can connect to https://azurepuplicip:64297 you will be prompted for your username and password supplied in the B64 Cloud Init String you supplied for *myCONF_WEB_PW=* 
