@@ -13,7 +13,8 @@
             "type": "string",
             "metadata": {
                 "description": "Virtual Network Resource ID to Deploy Azure VM into"
-            }
+            },
+            "defaultValue": "/subscriptions/{SUBID}/resourceGroups/{RG NAME}/providers/Microsoft.Network/virtualNetworks/{VNET NAME}"
         },
         "subnetName": {
             "type": "string",
