@@ -56,7 +56,7 @@
             }
         },
         "CloudInitB64Encoded": {
-            "type": "string",
+            "type": "securestring",
             "metadata": {
                 "description": "Cloud Init Configuration as a Base 64 encoded string, decode to examine a few variables to change and encode and submit"
             },
