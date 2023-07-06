@@ -1,0 +1,63 @@
+[
+    {
+    	"logsource": "tpot",
+		"type": "CitrixHoneypot",
+        "timestamp": "2023-07-03T12:29:11.872727Z",
+		"src_ip": "1.1.1.1",
+		"t-pot_ip_ext": "40.76.178.241",
+		"message": "(162.142.125.226:35662): GET Header: /favicon.ico",
+		"dest_port": 443,
+		"fileinfo.filename": "/favicon.ico",
+		"host": "4b2c8c0db01d",
+		"t-pot_ip_int": "10.0.2.4",
+		"ip_rep": "mass scanner",
+		"src_port": 35662,
+		"fileinfo.state": "Header",
+		"http.http_method": "GET",
+		"sensor": "honeypot01",
+		"geoip": {
+			"timezone": "Asia/Kolkata",
+			"region_name": "Madhya Pradesh",
+			"region_code": "MP",
+			"location": {
+				"lat": 23.2487,
+				"lon": 77.4066
+			},
+			"continent_code": "AS",
+			"country_name": "India",
+			"country_code2": "IN",
+			"postal_code": "464993",
+			"as_org": "Bharti Airtel Ltd., Telemedia Services",
+			"ip": "122.168.198.123",
+			"asn": 24560,
+			"latitude": 23.2487,
+			"city_name": "Bhopal",
+			"country_code3": "IN",
+			"longitude": 77.4066
+		},
+		"t-pot_hostname": "tragicsaw",
+		"geoip_ext": {
+			"timezone": "America/New_York",
+			"region_name": "Virginia",
+			"region_code": "VA",
+			"location": {
+				"lat": 37.9273,
+				"lon": -76.8545
+			},
+			"continent_code": "NA",
+			"country_name": "United States",
+			"country_code2": "US",
+			"postal_code": "22560",
+			"dma_code": 556,
+			"as_org": "MICROSOFT-CORP-MSN-AS-BLOCK",
+			"ip": "40.76.178.241",
+			"asn": 8075,
+			"latitude": 37.9273,
+			"city_name": "Tappahannock",
+			"country_code3": "US",
+			"longitude": -76.8545
+		},
+		"City": "Charlotte",
+		"ASN": "AS5432"
+    }
+]

