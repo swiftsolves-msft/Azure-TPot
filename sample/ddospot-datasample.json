@@ -15,6 +15,7 @@
 		"dns_name": "chron.com",
 		"dns_type": "TXT",
 		"dns_cls": "IN",
+		"path": "/data/ddospot/log/ntpot.log",
 		"opcode": 0,
 		"st": "upnp:rootdevice",
 		"host": "4b2c8c0db01d",

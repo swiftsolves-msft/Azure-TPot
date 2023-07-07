@@ -1,0 +1,71 @@
+[
+    {
+		"t-pot_ip_ext": "40.76.178.241",
+		"host": "bd6a79c9e47d",
+		"type": "ConPot",
+		"t-pot_hostname": "tragicsaw",
+		"dest_port": 2404,
+		"data_type": "IEC104",
+		"dest_ip": "172.21.0.2",
+		"path": "/data/conpot/log/conpot_IEC104.json",
+		"timestamp": "2023-07-07T14:46:50.468987",
+		"ip_rep": "mass scanner",
+		"public_ip": "40.76.178.241",
+		"request": {
+			"oid": "1.3.6.1.2.1.1.1.0",
+			"val": ""
+		},
+		"response": {
+			"oid": "1.3.6.1.2.1.1.1.0",
+			"val": "Siemens, SIMATIC, S7-300"
+		},
+		"geoip_ext": {
+			"country_name": "United States",
+			"city_name": "Tappahannock",
+			"asn": 8075,
+			"continent_code": "NA",
+			"ip": "40.76.178.241",
+			"timezone": "America/New_York",
+			"latitude": 37.9273,
+			"postal_code": "22560",
+			"country_code2": "US",
+			"longitude": -76.8545,
+			"region_code": "VA",
+			"region_name": "Virginia",
+			"location": {
+				"lon": -76.8545,
+				"lat": 37.9273
+			},
+			"country_code3": "US",
+			"dma_code": 556,
+			"as_org": "MICROSOFT-CORP-MSN-AS-BLOCK"
+		},
+		"id": "86a7088f-8461-4eae-b81e-a0ecb70c8f0c",
+		"t-pot_ip_int": "10.0.2.4",
+		"geoip": {
+			"country_name": "United States",
+			"city_name": "Nephi",
+			"asn": 6939,
+			"continent_code": "NA",
+			"ip": "74.82.47.37",
+			"timezone": "America/Denver",
+			"latitude": 39.6906,
+			"postal_code": "84648",
+			"country_code2": "US",
+			"longitude": -111.8404,
+			"region_code": "UT",
+			"region_name": "Utah",
+			"location": {
+				"lon": -111.8404,
+				"lat": 39.6906
+			},
+			"country_code3": "US",
+			"dma_code": 770,
+			"as_org": "HURRICANE"
+		},
+		"event_type": "CONNECTION_LOST",
+		"sensorid": "conpot",
+		"src_ip": "74.82.47.37",
+		"src_port": 62133
+    }
+]

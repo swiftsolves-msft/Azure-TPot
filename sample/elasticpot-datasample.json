@@ -1,0 +1,66 @@
+[
+    {
+		"t-pot_ip_ext": "40.76.178.241",
+		"host": "bd6a79c9e47d",
+		"type": "ElasticPot",
+		"eventid": "elasticpot.recon",
+		"t-pot_hostname": "tragicsaw",
+		"dest_port": 9200,
+		"dest_ip": "172.29.0.2",
+		"path": "/data/elasticpot/log/elasticpot.json",
+		"accept_language": "en;q=0.9",
+		"http.http_content_type": "application/json",
+		"timestamp": "2023-07-07T20:05:08.609555Z",
+		"ip_rep": "known attacker",
+		"geoip_ext": {
+			"country_name": "United States",
+			"city_name": "Tappahannock",
+			"asn": 8075,
+			"continent_code": "NA",
+			"ip": "40.76.178.241",
+			"timezone": "America/New_York",
+			"latitude": 37.9273,
+			"postal_code": "22560",
+			"country_code2": "US",
+			"longitude": -76.8545,
+			"region_code": "VA",
+			"region_name": "Virginia",
+			"location": {
+				"lon": -76.8545,
+				"lat": 37.9273
+			},
+			"country_code3": "US",
+			"dma_code": 556,
+			"as_org": "MICROSOFT-CORP-MSN-AS-BLOCK"
+		},
+		"sensor": "t-pot",
+		"t-pot_ip_int": "10.0.2.4",
+		"geoip": {
+			"country_name": "United States",
+			"city_name": "San Francisco",
+			"asn": 14061,
+			"continent_code": "NA",
+			"ip": "107.170.233.4",
+			"timezone": "America/Los_Angeles",
+			"latitude": 37.7308,
+			"postal_code": "94124",
+			"country_code2": "US",
+			"longitude": -122.3838,
+			"region_code": "CA",
+			"region_name": "California",
+			"location": {
+				"lon": -122.3838,
+				"lat": 37.7308
+			},
+			"country_code3": "US",
+			"dma_code": 807,
+			"as_org": "DIGITALOCEAN-ASN"
+		},
+		"request_method": "GET",
+		"event_type": "Scan",
+		"http_user_agent": "Mozilla/5.0 zgrab/0.x",
+		"src_ip": "107.170.233.4",
+		"src_port": 46648,
+		"http.url": "/"
+    }
+]

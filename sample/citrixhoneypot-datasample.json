@@ -57,7 +57,6 @@
 			"country_code3": "US",
 			"longitude": -76.8545
 		},
-		"City": "Charlotte",
-		"ASN": "AS5432"
+		"path": "/data/citrixhoneypot/logs/server.log"
     }
 ]
