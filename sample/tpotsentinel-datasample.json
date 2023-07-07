@@ -12,30 +12,106 @@
 		"fatt_ssh": "",
 		"fatt_tls": "",
 		"level": "",
+		"accept_language": "en;q=0.9",
 		"type": "Cowrie",
 		"time": "2023-07-03T00:00:00.000Z",
 		"id": "",
 		"aetitle": "",
 		"input": "",
 		"files": "",
+		"src_hostname": "",
+		"connection": {
+			"type": "accept",
+			"protocol": "mssqld",
+			"transport": "tcp"
+		},
+		"ftp": {
+			"commands": {
+				"command": [
+					"AUTH"
+				],
+				"arguments": [
+					"TLS"
+				]
+			}
+		},
+		"kexAlgs": [
+			"ecdh-sha2-nistp256",
+			"ecdh-sha2-nistp384",
+			"ecdh-sha2-nistp521",
+			"diffie-hellman-group-exchange-sha256",
+			"diffie-hellman-group-exchange-sha1",
+			"diffie-hellman-group14-sha1",
+			"diffie-hellman-group1-sha1"
+		],
+		"macCS": [
+			"hmac-sha2-256",
+			"hmac-sha2-512",
+			"hmac-sha1",
+			"hmac-sha1-96",
+			"hmac-md5",
+			"hmac-md5-96",
+			"hmac-ripemd160",
+			"hmac-ripemd160@openssh.com"
+		],
+		"compCS": [
+			"none"
+		],
+		"encCS": [
+			"aes128-ctr",
+			"aes192-ctr",
+			"aes256-ctr",
+			"aes256-cbc",
+			"rijndael-cbc@lysator.liu.se",
+			"aes192-cbc",
+			"aes128-cbc",
+			"blowfish-cbc",
+			"arcfour128",
+			"arcfour",
+			"cast128-cbc",
+			"3des-cbc"
+		],
+		"langCS": [
+			""
+		],
+		"hassh": "1616c6d18e845e7a01168a44591f7a35",
+		"hasshAlgorithms": "ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1;aes128-ctr,aes192-ctr,aes256-ctr,aes256-cbc,rijndael-cbc@lysator.liu.se,aes192-cbc,aes128-cbc,blowfish-cbc,arcfour128,arcfour,cast128-cbc,3des-cbc;hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-sha1-96,hmac-md5,hmac-md5-96,hmac-ripemd160,hmac-ripemd160@openssh.com;none",
+		"size": 3173,
 		"identifier": "",
+		"arch": "linux-am33-lsb",
+		"ttylog": "log/tty/19bd3cf85b72114d5b4c8e31b3c91d722dc6ac92ada67cbdd467bef95cb6d08c",
 		"st": "upnp:rootdevice",
 		"matches": "",
 		"session": "7e564712cbac",
 		"version": "",
+		"duplicate": false,
 		"http.http_content_type": "",
-		"event_type": "",
+		"event_type": "CONNECTION_LOST",
 		"request_method": "",
 		"http_user_agent": "",
+		"public_ip": "40.76.178.241",
 		"http.url": "",
-        	"eventid": "cowrie.session.closed",
-        	"duration": 10.34404444694519,
-        	"message": "Connection lost after 10 seconds",
-       		"sensor": "387d64f08464",
+        "eventid": "cowrie.session.closed",
+        "duration": 10.34404444694519,
+		"password": "ubnt",
+		"username": "ubnt",
+        "message": "Connection lost after 10 seconds",
+        "sensor": "387d64f08464",
 		"bytes": "",
 		"url": "",
+		"sensorid": "conpot",
 		"reason": "",
+		"request": {
+			"oid": "1.3.6.1.2.1.1.1.0",
+			"val": ""
+		},
+		"response": {
+			"oid": "1.3.6.1.2.1.1.1.0",
+			"val": "Siemens, SIMATIC, S7-300"
+		},
 		"ipp_query": "",
+		"data_type": "IEC104",
+		"path": "/data/conpot/log/conpot_IEC104.json",
 		"data": "",
 		"request_uri": "",
 		"request_data": "",
