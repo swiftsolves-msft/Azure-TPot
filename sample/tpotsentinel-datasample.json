@@ -6,6 +6,351 @@
 		"dest_ip": "2.2.2.2",
 		"src_port": "22",
 		"dest_port": "22",
+		"smtp_input": [
+			"spameri@tiscali.it"
+		],
+		"operation_mode": 1,
+		"download_count": 0,
+		"download_tries": 0,
+		"server_protocol": "HTTP/2.0",
+		"remote_user": "webuser",
+		"server_name": "example.com",
+		"connection_requests": "14",
+		"cookies": {
+			" sidebar_collapsed": "false",
+			"sess_uuid": "bdaf2baf-8025-40c5-8423-fc96675d4e8a",
+			" sess_uuid": "b989a87b-acab-48f0-897d-eb9fd300bd72",
+			" username": "null",
+			"userLanguage": "EN"
+		},
+		"tls": {
+			"notafter": "2024-03-25T07:55:12",
+			"sni": "umsajqptqtm1hmjg50pm.blob.core.windows.net",
+			"notbefore": "2023-03-25T07:55:12",
+			"subject": "CN=*.blob.core.windows.net",
+			"fingerprint": "44:2d:fc:35:40:76:c0:3a:47:5e:3f:2b:8b:42:62:e3:0d:3a:81:79",
+			"ja3": {
+				"hash": "e0ff89ed9185dfb09184797a4c3f2e1c",
+				"string": "771,4866-4867-4865-49196-49200-159-52393-52392-52394-49195-49199-158-49188-49192-107-49187-49191-103-49162-49172-57-49161-49171-51-157-156-61-60-53-47-255,0-11-10-35-22-23-49-13-43-45-51-21,29-23-30-25-24,0-1-2"
+			},
+			"ja3s": {
+				"hash": "ae4edc6faf64d08308082ad26be60767",
+				"string": "771,49200,23-65281"
+			},
+			"issuerdn": "C=US, O=Microsoft Corporation, CN=Microsoft RSA TLS CA 01",
+			"serial": "4B:00:32:D5:90:B0:1B:5C:7E:11:53:8B:46:00:00:00:32:D5:90",
+			"version": "TLS 1.2",
+			"certificate": "MIIONDCCDBygAwIBAgITSwAy1ZCwG1x+EVOLRgAAADLVkDANBgkqhkiG9w0BAQsFADBPMQswCQYDVQQGEwJVUzEeMBwGA1UEChMVTWljcm9zb2Z0IENvcnBvcmF0aW9uMSAwHgYDVQQDExdNaWNyb3NvZnQgUlNBIFRMUyBDQSAwMTAeFw0yMzAzMjUwNzU1MTJaFw0yNDAzMjUwNzU1MTJaMCIxIDAeBgNVBAMMFyouYmxvYi5jb3JlLndpbmRvd3MubmV0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyqxhIXgUTZnQKKO3sf6mENDy9+oiIeBsMLG0+JmA7UzSb+pkdlXgvFfROYLoIKQtPhCmH257JgWvRYY6LnrWgkPLHb9UFnvWEnhQtW+ZHZLiet+6EERaUbSDvTuLoNBUN9v/GbO/qd7S1R3n4ENRJWCNXJYYcxVik2W6LGxMLR02afqu4fYSEHamzwgNh3g6NFpz2FXBsuP+Ijlyd85V13jHQ4mOhf6Q/DufNiSVKM8DYAZIZKxLv++wIXKJy79zNq2AXAj1qYEHcV3PB0AgEvo/MWYDZQ21/nNZxjpDB2Cq2sg7sQYKzaZqncI7/KHz0q1PmahMrlHNs/h601AymQIDAQABo4IKNDCCCjAwggF/BgorBgEEAdZ5AgQCBIIBbwSCAWsBaQB3AHb/iD8KtvuVUcJhzPWHujS0pM27KdxoQgqf5mdMWjp0AAABhxfM5CEAAAQDAEgwRgIhAIjqKtd52UwtEqmdsqSw//4Fj2bwllyNWV3mcmhPdswUAiEAzSegwEl9fKhmQD/rOttFgy+3Lg+kS7VPvJpflCchyHQAdgBVgdTCFpA2AUrqC5tXPFPwwOQ4eHAlCBcvo6odBxPTDAAAAYcXzOUKAAAEAwBHMEUCIFL0JuTzcpyCDNh4IAYQWj0PR5frZAladvi9ZTp5ZmUsAiEAkbRpv+PLCJsP0kXJjvzcabUVorGZWPbtG4QQ4sqEBUoAdgDuzdBk1dsazsVct520zROiModGfLzs3sNRSFlGcR+1mwAAAYcXzOPWAAAEAwBHMEUCIC31nb3clFDmD6AoUeaHEGnNF0x92clWA2XqpZpVHag3AiEA5Ayz6BYZmHr8bHhvfzNutSK+5RUmEBVY4sspi50CBcswJwYJKwYBBAGCNxUKBBowGDAKBggrBgEFBQcDATAKBggrBgEFBQcDAjA+BgkrBgEEAYI3FQcEMTAvBicrBgEEAYI3FQiH2oZ1g+7ZAYLJhRuBtZ5hhfTrYIFdhYaOQYfCmFACAWQCAScwgYcGCCsGAQUFBwEBBHsweTBTBggrBgEFBQcwAoZHaHR0cDovL3d3dy5taWNyb3NvZnQuY29tL3BraS9tc2NvcnAvTWljcm9zb2Z0JTIwUlNBJTIwVExTJTIwQ0ElMjAwMS5jcnQwIgYIKwYBBQUHMAGGFmh0dHA6Ly9vY3NwLm1zb2NzcC5jb20wHQYDVR0OBBYEFJYJu7Xp06wQqkT5Y5cVmRoSnOY3MA4GA1UdDwEB/wQEAwIEsDCCBjsGA1UdEQSCBjIwggYughcqLmJsb2IuY29yZS53aW5kb3dzLm5ldIImKi5ibDFwcmRzdHJ6MDFhLnN0b3JlLmNvcmUud2luZG93cy5uZXSCGCouYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIbKi56MS5ibG9iLnN0b3JhZ2UuYXp1cmUubmV0ghsqLnoyLmJsb2Iuc3RvcmFnZS5henVyZS5uZXSCGyouejMuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIbKi56NC5ibG9iLnN0b3JhZ2UuYXp1cmUubmV0ghsqLno1LmJsb2Iuc3RvcmFnZS5henVyZS5uZXSCGyouejYuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIbKi56Ny5ibG9iLnN0b3JhZ2UuYXp1cmUubmV0ghsqLno4LmJsb2Iuc3RvcmFnZS5henVyZS5uZXSCGyouejkuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MTAuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MTEuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MTIuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MTMuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MTQuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MTUuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MTYuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MTcuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MTguYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MTkuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MjAuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MjEuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MjIuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MjMuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MjQuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MjUuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MjYuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MjcuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MjguYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MjkuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MzAuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MzEuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MzIuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MzMuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MzQuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MzUuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MzYuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MzcuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MzguYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56MzkuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56NDAuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56NDEuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56NDIuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56NDMuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56NDQuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56NDUuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56NDYuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56NDcuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56NDguYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56NDkuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldIIcKi56NTAuYmxvYi5zdG9yYWdlLmF6dXJlLm5ldDCBsAYDVR0fBIGoMIGlMIGioIGfoIGchk1odHRwOi8vbXNjcmwubWljcm9zb2Z0LmNvbS9wa2kvbXNjb3JwL2NybC9NaWNyb3NvZnQlMjBSU0ElMjBUTFMlMjBDQSUyMDAxLmNybIZLaHR0cDovL2NybC5taWNyb3NvZnQuY29tL3BraS9tc2NvcnAvY3JsL01pY3Jvc29mdCUyMFJTQSUyMFRMUyUyMENBJTIwMDEuY3JsMFcGA1UdIARQME4wQgYJKwYBBAGCNyoBMDUwMwYIKwYBBQUHAgEWJ2h0dHA6Ly93d3cubWljcm9zb2Z0LmNvbS9wa2kvbXNjb3JwL2NwczAIBgZngQwBAgEwHwYDVR0jBBgwFoAUtXYMMBHOx5JCTUzHXCzIqQzoC2QwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMA0GCSqGSIb3DQEBCwUAA4ICAQBHVsdYnaFuzIRV7MwsvVi0zbmqd0KSIs1nX5AncjCsPak2HieRikWGk9YDeMCX3MYXNudUeUD9mfnfpqoRDhk6GAlqSDJ5hqeYGrrhFCo/dQ/61dyXPdK70L7y5l2kCYbyWy6gnYLrnbcLG7ReIH1G2Jgq1FAqQlb/UMqIH7OZP5GXZZAMAU2ieqjZCZuMpKM1mG/6oIZsc7U1LAM6SEmO+yFDKrKFO43UbcDE5arwDERCzdbERrxIDI3KDsGi3SJx8gALcmlncwdaJR7XkjKnuG0MddnuYIiQVDCt8Q4LBvqbjAxgh9ORLjhrACX8YXrQ9v4iypgrMmGi3Ats9BNUCDsdWIf672Ivh/YTgZQd40arX9yvWK8mpKy+UZQCKqIsN9GYW60tyuD/xp5k5y8tU00ifUePlWgQ9jFEQrkyoUdeahUi0vJ2W8Ck3AWhQ4FgKkkxJz46mbwZ6qDP58s4q9V+5jPA+hPXrV41y+wEn356SnSVZJ3625YNipMf1Km9V2OWrKrVsI10zKXymmviLemw9sK7Epc5BVw8ehKjBq3cBQ1ttm6+dsMUqcMuS6BRfW85OQuSnlVGwTtQT6lKdZxMcjyX7L+F2WA4ca8EdnanVZ7S4x1gJx+NijE0BvyQpdoPArWzT1pPjrEn9BZ2qPOpy5Vtf0sW/wRokCnksg=="
+		},
+		"metadata": {
+			"flowbits": [
+				"BS.SSL.Known.Port"
+			]
+		},
+		"dns": {
+			"rcode": "NOERROR",
+			"rrtype": "AAAA",
+			"rd": true,
+			"id": 18674,
+			"ra": true,
+			"rrname": "md-ssd-fh3gk0jrh3kl.z11.blob.storage.azure.net",
+			"answers": [
+				{
+					"rrtype": "CNAME",
+					"rrname": "md-ssd-fh3gk0jrh3kl.z11.blob.storage.azure.net",
+					"ttl": 60,
+					"rdata": "blob.mnz22prdstp05a.store.core.windows.net"
+				}
+			],
+			"grouped": {
+				"CNAME": [
+					"blob.mnz22prdstp05a.store.core.windows.net"
+				]
+			},
+			"qr": true,
+			"flags": "8180",
+			"version": 2,
+			"type": "answer",
+			"authorities": [
+				{
+					"rrtype": "SOA",
+					"rrname": "store.core.windows.net",
+					"ttl": 131,
+					"soa": {
+						"rname": "azuredns-hostmaster.microsoft.com",
+						"minimum": 300,
+						"refresh": 3600,
+						"mname": "ns1-05.azure-dns.com",
+						"serial": 1,
+						"retry": 300,
+						"expire": 2419200
+					}
+				}
+			]
+		},
+		"sip": {
+			"request_line": "INVITE sip:8881330046171121694@40.76.178.241 SIP/2.0",
+			"method": "INVITE",
+			"uri": "sip:8881330046171121694@40.76.178.241",
+			"version": "SIP/2.0"
+		},
+		"ssh": {
+			"client": {
+				"software_version": "ZGrab",
+				"proto_version": "2.0"
+			}
+		},
+		"rdp": {
+			"tx_id": 0,
+			"event_type": "initial_request",
+			"cookie": "WOLHLkZQZ"
+		},
+		"snmp": {
+			"version": 1,
+			"vars": [
+				"1.3.6.1.2.1.1.5.0"
+			],
+			"community": "public",
+			"pdu_type": "response"
+		},
+		"dnp3": {
+			"type": "request",
+			"application": {
+				"function_code": 130,
+				"complete": false,
+				"control": {
+					"sequence": 7,
+					"fin": true,
+					"fir": true,
+					"con": true,
+					"uns": true
+				},
+				"objects": []
+			},
+			"control": {
+				"fcv": false,
+				"fcb": false,
+				"function_code": 4,
+				"dir": false,
+				"pri": true
+			},
+			"src": 4,
+			"dst": 3
+		},
+		"ftp": {
+			"commands": {
+				"command": [
+					"AUTH"
+				],
+				"arguments": [
+					"TLS"
+				]
+			},
+			"reply_received": "yes",
+			"reply": [
+				"Not implemented for parameter 'A'."
+			],
+			"command_truncated": false,
+			"reply_truncated": false,
+			"command": "TYPE",
+			"command_data": "A",
+			"completion_code": [
+				"504"
+			]
+		},
+		"rfb": {
+			"authentication": {},
+			"server_protocol_version": {
+				"major": "003",
+				"minor": "007"
+			}
+		},
+		"mqtt": {
+			"connack": {
+				"return_code": 0,
+				"qos": 0,
+				"dup": false,
+				"retain": false,
+				"session_present": false
+			},
+			"connect": {
+				"client_id": "CENSYS",
+				"protocol_string": "MQTT",
+				"retain": false,
+				"flags": {
+					"clean_session": false,
+					"username": false,
+					"will_retain": false,
+					"password": false,
+					"will": false
+				},
+				"qos": 0,
+				"dup": false,
+				"protocol_version": 4
+			},
+			"subscribe": {
+				"message_id": 4386,
+				"topics": [
+					{
+						"qos": 0,
+						"topic": "#"
+					}
+				],
+				"qos": 1,
+				"dup": false,
+				"retain": false
+			},
+			"suback": {
+				"message_id": 4386,
+				"qos": 0,
+				"dup": false,
+				"retain": false,
+				"qos_granted": []
+			}
+		},
+		"payload_printable": "..9w........,9.u.\"H1...........'............H1..........",
+		"payload": "AQs5dwABAA4AAQABLDkDdQAiSDEIiQAGAAgAFwAYACcAHwAIAAL//wADAAxIMQiJAAAOEAAAFRg=",
+		"alert": {
+			"action": "allowed",
+			"category": "Attempted Administrator Privilege Gain",
+			"cve_id": "CVE-2020-11899",
+			"metadata": {
+				"signature_severity": [
+					"Major"
+				],
+				"created_at": [
+					"2020_06_22"
+				],
+				"former_category": [
+					"EXPLOIT"
+				],
+				"updated_at": [
+					"2020_08_20"
+				],
+				"performance_impact": [
+					"Significant"
+				]
+			},
+			"rev": 2,
+			"severity": 1,
+			"signature": "ET EXPLOIT Possible CVE-2020-11899 Multicast out-of-bound read",
+			"gid": 1,
+			"signature_id": 2030387
+		},
+		"in_iface": "eth0",
+		"tx_id": 0,
+		"http": {
+			"http_content_type": "text/xml",
+			"http_user_agent": "WALinuxAgent/2.2.47",
+			"http_method": "GET",
+			"status": 200,
+			"url": "/machine/?comp=goalstate",
+			"length": 2272,
+			"protocol": "HTTP/1.1",
+			"hostname": "168.63.129.16"
+		},
+		"fileinfo": {
+			"tx_id": 0,
+			"size": 2272,
+			"stored": false,
+			"sid": [],
+			"md5": "ac006bfc8b7ae4a53571bcfca8192680",
+			"filename": "/machine/",
+			"magic": "XML 1.0 document, ASCII text, with CRLF line terminators",
+			"gaps": false,
+			"state": "CLOSED"
+		},
+		"app_proto": "http",
+		"peer": {},
+		"post_data": {
+			"A": "|echo;echo -n PXJISSOChe|md5sum"
+		},
+		"headers": {
+			"connection": "close",
+			"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36",
+			"content-length": "33",
+			"accept": "*/*",
+			"content-type": "application/x-www-form-urlencoded",
+			"host": "40.76.178.241:80",
+			"accept-encoding": "gzip"
+		},
+		"response_msg": {
+			"version": "0.6.0",
+			"response": {
+				"message": {
+					"sess_uuid": "314ae17e-5f03-4666-88ab-a6edcb5bab48",
+					"detection": {
+						"version": "0.6.0",
+						"type": 1,
+						"order": 0,
+						"name": "unknown"
+					}
+				}
+			}
+		},
+		"uuid": "89994ea2-a508-4fd5-abbb-0a09f6fcf74b",
+		"upstream": "127.0.0.1:64298",
+		"gzip_ratio": "",
+		"pid": "10",
+		"request_id": "b5532f2070cefc828a5a78976e1be9d6",
+		"http_x_forwarded_for": "",
+		"request_time": "0.004",
+		"connection_serial": "6468",
+		"msec": "1688789385.229",
+		"http_referer": "https://40.76.178.241:64297/elasticvue/cluster/0/search",
+		"args": "",
+		"bytes_sent": "956",
+		"scheme": "https",
+		"http_cf_ray": "",
+		"request_length": "56",
+		"body_bytes_sent": "695",
+		"proxy_host": "127.0.0.1:64298",
+		"ssl_cipher": "TLS_AES_256_GCM_SHA384",
+		"upstream_response_length": "1498",
+		"upstream_connect_time": "0.001",
+		"time_local": "08/Jul/2023:04:09:45 +0000",
+		"pipe": ".",
+		"ssl_protocol": "TLSv1.3",
+		"time_iso8601": "2023-07-08T04:09:45+00:00",
+		"upstream_header_time": "0.004",
+		"upstream_cache_status": "",
+		"status": 200,
+		"upstream_response_time": "0.004",
+		"is_virtual": false,
+		"proxy_connection": {
+			"local_port": 0,
+			"remote_port": 0,
+			"remote_ip": "0.0.0.0",
+			"protocol": "ip",
+			"local_ip": "0.0.0.0",
+			"payload": {
+				"md5_hash": "d41d8cd98f00b204e9800998ecf8427e",
+				"sha512_hash": "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e",
+				"length": 0,
+				"data_hex": ""
+			}
+		},
+		"attack_connection": {
+			"protocol": "tcp",
+			"payload": {
+				"md5_hash": "bf5301d9f66675521c734c08b9796cff",
+				"sha512_hash": "7070b7f388537f92d67d1dc02990066eb96f199e6b21d39e782155593507187e66323e0f1292f3fd648b36271f617395f1d6863b0d0744db6467304a943b3f20",
+				"length": 90,
+				"data_hex": "005a0000010000000136012c000008007fff7f08000000010020003a0000000000000000000000000000000034e600000001000000000000000028434f4e4e4543545f444154413d28434f4d4d414e443d76657273696f6e2929"
+			}
+		},
+		"action": "NewConnect",
+		"msg": "",
+		"transport_type": "UDP",
+		"sip_method": "INVITE",
+		"event_uuid": "957dc213-b454-4bd8-8be8-69bc3b57eb48",
+		"app_version": "3.0.0",
+		"collected_method": "responsive",
+		"called_number": "901146333237362",
+		"created_by_node_id": "52962c6b-9019-4d6f-b9af-5ca005deca01",
+		"sip_message": "INVITE sip:901146333237362@40.76.178.241 SIP/2.0\r\nVia: SIP/2.0/UDP 172.31.147.58:54544;branch=z9hG4bK1181436817\r\nFrom: <sip:801@40.76.178.241>;tag=86646670\r\nTo: <sip:901146333237362@40.76.178.241>\r\nCall-ID: 1148055446-795240784-483825009\r\nCSeq: 1 INVITE\r\nContact: <sip:801@172.31.147.58:54544>\r\nContent-Type: application/sdp\r\nAllow: ACK\r\nAllow: BYE\r\nAllow: CANCEL\r\nAllow: INFO\r\nAllow: INVITE\r\nAllow: MESSAGE\r\nAllow: NOTIFY\r\nAllow: OPTIONS\r\nAllow: PRACK\r\nAllow: REFER\r\nAllow: REGISTER\r\nAllow: SUBSCRIBE\r\nAllow: UPDATE\r\nAllow: PUBLISH\r\nMax-forwards: 70\r\nUser-agent: Linksys-SPA942\r\nContent-Length:   207\r\n\r\nv=0\r\no=801 16264 18299 IN IP4 192.168.1.83\r\ns=call\r\nc=IN IP4 192.168.1.83\r\nt=0 0\r\nm=audio 25282 RTP/AVP 0 101\r\na=rtpmap:0 pcmu/8000\r\na=rtpmap:8 pcma/8000\r\na=rtpmap:101 telephone-event/8000\r\na=fmtp:101 0-11\r\n",
+		"sip_user_agent": "Linksys-SPA942",
+		"app_name": "sentrypeer",
 		"fatt_gquic": {},
 		"fatt_rdp": {},
 		"fatt_ssh": {},
@@ -45,16 +390,6 @@
 			"type": "accept",
 			"protocol": "mssqld",
 			"transport": "tcp"
-		},
-		"ftp": {
-			"commands": {
-				"command": [
-					"AUTH"
-				],
-				"arguments": [
-					"TLS"
-				]
-			}
 		},
 		"kexAlgs": [
 			"ecdh-sha2-nistp256",

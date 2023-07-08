@@ -1,0 +1,85 @@
+[
+    {
+		"dest_port": 42424,
+		"downloads": {},
+		"ip_rep": "known attacker",
+		"host": "4b2c8c0db01d",
+		"t-pot_ip_int": "10.0.2.4",
+		"src_port": 57392,
+		"attack_connection": {
+			"protocol": "tcp",
+			"payload": {
+				"md5_hash": "bf5301d9f66675521c734c08b9796cff",
+				"sha512_hash": "7070b7f388537f92d67d1dc02990066eb96f199e6b21d39e782155593507187e66323e0f1292f3fd648b36271f617395f1d6863b0d0744db6467304a943b3f20",
+				"length": 90,
+				"data_hex": "005a0000010000000136012c000008007fff7f08000000010020003a0000000000000000000000000000000034e600000001000000000000000028434f4e4e4543545f444154413d28434f4d4d414e443d76657273696f6e2929"
+			}
+		},
+		"geoip": {
+			"timezone": "Asia/Bangkok",
+			"region_name": "Bangkok",
+			"region_code": "10",
+			"location": {
+				"lat": 13.8054,
+				"lon": 100.6751
+			},
+			"continent_code": "AS",
+			"country_name": "Thailand",
+			"country_code2": "TH",
+			"postal_code": "10200",
+			"as_org": "UCLOUD INFORMATION TECHNOLOGY HK LIMITED",
+			"ip": "165.154.119.50",
+			"asn": 135377,
+			"latitude": 13.8054,
+			"city_name": "Bangkok",
+			"country_code3": "TH",
+			"longitude": 100.6751
+		},
+		"src_ip": "165.154.119.50",
+		"geoip_ext": {
+			"timezone": "America/New_York",
+			"region_name": "Virginia",
+			"region_code": "VA",
+			"location": {
+				"lat": 37.9273,
+				"lon": -76.8545
+			},
+			"continent_code": "NA",
+			"country_name": "United States",
+			"country_code2": "US",
+			"postal_code": "22560",
+			"dma_code": 556,
+			"as_org": "MICROSOFT-CORP-MSN-AS-BLOCK",
+			"ip": "40.76.178.241",
+			"asn": 8075,
+			"latitude": 37.9273,
+			"city_name": "Tappahannock",
+			"country_code3": "US",
+			"longitude": -76.8545
+		},
+		"dest_ip": "10.0.2.4",
+		"path": "/data/honeytrap/log/attackers.json",
+		"is_virtual": false,
+		"t-pot_ip_ext": "40.76.178.241",
+		"end_time": "2023-07-07T01:12:59Z",
+		"start_time": "2023-07-07T01:12:58Z",
+		"proxy_connection": {
+			"local_port": 0,
+			"remote_port": 0,
+			"remote_ip": "0.0.0.0",
+			"protocol": "ip",
+			"local_ip": "0.0.0.0",
+			"payload": {
+				"md5_hash": "d41d8cd98f00b204e9800998ecf8427e",
+				"sha512_hash": "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e",
+				"length": 0,
+				"data_hex": ""
+			}
+		},
+		"download_count": 0,
+		"operation_mode": 1,
+		"t-pot_hostname": "tragicsaw",
+		"download_tries": 0,
+		"type": "Honeytrap"
+    }
+]
