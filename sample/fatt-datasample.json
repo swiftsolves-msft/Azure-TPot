@@ -1,0 +1,65 @@
+[
+    {
+		"geoip_ext": {
+			"country_name": "United States",
+			"city_name": "Tappahannock",
+			"asn": 8075,
+			"continent_code": "NA",
+			"ip": "40.76.178.241",
+			"timezone": "America/New_York",
+			"latitude": 37.9273,
+			"postal_code": "22560",
+			"country_code2": "US",
+			"longitude": -76.8545,
+			"region_code": "VA",
+			"region_name": "Virginia",
+			"location": {
+				"lon": -76.8545,
+				"lat": 37.9273
+			},
+			"country_code3": "US",
+			"dma_code": 556,
+			"as_org": "MICROSOFT-CORP-MSN-AS-BLOCK"
+		},
+		"t-pot_ip_ext": "40.76.178.241",
+		"host": "bd6a79c9e47d",
+		"type": "Fatt",
+		"protocol": "http",
+		"fatt_gquic": {},
+		"fatt_rdp": {},
+		"fatt_ssh": {},
+		"fatt_tls": {
+			"ja3Extensions": "0-11-10-35-22-23-49-13-43-45-51-21",
+			"ja3": "c79a772a288596e3dd89908d83431cb7",
+			"ja3s": "837430e5b4431f78f82cf6991c1b0def",
+			"ja3EcFmt": "0-1-2",
+			"serverName": "umsajqptqtm1hmjg50pm.blob.core.windows.net",
+			"ja3Algorithms": "771,0x1302-0x1303-0x1301-0xc02c-0xc030-0x009f-0xcca9-0xcca8-0xccaa-0xc02b-0xc02f-0x009e-0xc024-0xc028-0x006b-0xc023-0xc027-0x0067-0xc00a-0xc014-0x0039-0xc009-0xc013-0x0033-0x009d-0x009c-0x003d-0x003c-0x0035-0x002f-0x00ff,0-11-10-35-22-23-49-13-43-45-51-21,29-23-30-25-24,0-1-2",
+			"ja3Version": "771",
+			"ja3Ciphers": "0x1302-0x1303-0x1301-0xc02c-0xc030-0x009f-0xcca9-0xcca8-0xccaa-0xc02b-0xc02f-0x009e-0xc024-0xc028-0x006b-0xc023-0xc027-0x0067-0xc00a-0xc014-0x0039-0xc009-0xc013-0x0033-0x009d-0x009c-0x003d-0x003c-0x0035-0x002f-0x00ff",
+			"ja3Ec": "29-23-30-25-24"
+		},
+		"t-pot_hostname": "tragicsaw",
+		"ip_rep": "known attacker",
+		"dest_port": 80,
+		"t-pot_ip_int": "10.0.2.4",
+		"geoip": {},
+		"fatt_http": {
+			"clientHeaderOrder": "request_uri_path,request_uri_query,request_uri_query_parameter,host,accept_encoding,connection,user_agent",
+			"requestFullURI": "http://168.63.129.16/machine/?comp=goalstate",
+			"userAgent": "WALinuxAgent/2.2.47",
+			"clientHeaderHash": "58a4c0692b1cd8e1a3cc8799c6d8d86f",
+			"requestMethod": "GET",
+			"requestURI": "/machine/?comp=goalstate",
+			"requestVersion": "HTTP/1.1"
+		},
+		"src_ip": "10.0.2.4",
+		"src_port": 32902,
+		"dest_ip": "168.63.129.16",
+		"path": "/data/fatt/log/fatt.log",
+		"timestamp": "2023-07-08T00:27:16.523890",
+		"tags": [
+			"_geoip_lookup_failure"
+		]
+    }
+]
