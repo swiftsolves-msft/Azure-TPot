@@ -162,15 +162,15 @@ if [type] == "Ipphoney" {
     chmod 760 /data/elk/logstash.conf  
     chown tpot:tpot /data/elk/logstash.conf
 ```
- 
-8.  Next you will modify a Dockerfile for logstash at: _/opt/tpot/docker/elk/logstash/Dockerfile ,_
-    
-9.  Insert the following line of code below the _bin/logstash-plugin update_
+
+9. Save the file and in this next step you will now modify tpot.yml service file to install the Microsoft Sentinel plugin. with your editor edit the following file: _/opt/tpot/etc/tpot.yml_
+
+10.  Insert the following line of code below the _bin/logstash-plugin update_
     
     `bin/logstash-plugin install microsoft-sentinel-logstash-output-plugin && \`
     
-11.  Save the file and in this next step you will now modify tpot.yml service file to install the Microsoft Sentinel plugin. with your editor edit the following file: _/opt/tpot/etc/tpot.yml_
-    
+11.  Next you will modify a Dockerfile for logstash at: _/opt/tpot/docker/elk/logstash/Dockerfile ,_
+
 12.  remark # out the image and add the following lines with proper indents (two spaces). This will allow on next T-Pot service start to force a new image build using this information rather than pull the image from docker hub. It will also grab and use the copied and modified logstash.conf in /data you brought over and edited in the beginning of steps to use a Output plugin for Microsoft Sentinel.
     
 ```## Logstash service
