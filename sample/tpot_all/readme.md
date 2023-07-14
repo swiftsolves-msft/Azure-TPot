@@ -81,7 +81,7 @@ The next steps will involve updating Azure VM T-Pot to install_microsoft-sentine
     
     `}`
     
-6. modify the _/data/elk/logstash.conf_ by scrolling in a few sections making changes via remarks below. # CitrixHoneypot, # Ipphoney, # ElasticPot, an overall sample file can be found here: 
+6. modify the _/data/elk/logstash.conf_ by scrolling in a few sections making changes via remarks below. # CitrixHoneypot an overall sample file can be found here: 
 
     ```# CitrixHoneypot
     if [type] == "CitrixHoneypot" {
@@ -105,17 +105,51 @@ The next steps will involve updating Azure VM T-Pot to install_microsoft-sentine
     		}
     		rename => {
     			"levelname" => "level"
-    			"http.http_method" => "httpmethod"
-    			# Rename - ? , Grok earlier possible make change there.
-    			"fileinfo.filename" => "fileinfoname"
-    			# Rename - ? , Grok earlier possible make change there.
-    			"fileinfo.state" => "fileinfostate"
-    			# Rename - ? , Grok earlier possible make change there.
+    			"http.http_method" => "httpmethod" # Rename - ? , Grok earlier possible make change there.
+    			"fileinfo.filename" => "fileinfoname" # Rename - ? , Grok earlier possible make change there.
+    			"fileinfo.state" => "fileinfostate" # Rename - ? , Grok earlier possible make change there.
     		}
     	}
-    }```
+    }
 
+7. modify the _/data/elk/logstash.conf_ by scrolling in a few sections and Remarking out via below. # ElasticPot, # Ipphoney, an overall sample file can be found here: 
 
+```# ElasticPot
+if [type] == "ElasticPot" {
+	date {
+		match => ["timestamp", "ISO8601"]
+	}
+	mutate {
+		rename => {
+			# "content_type" => "http.http_content_type"
+			"dst_port" => "dest_port"
+			"dst_ip" => "dest_ip"
+			"message" => "event_type"
+			"request" => "request_method"
+			"user_agent" => "http_user_agent"
+			# "url" => "http.url"
+		}
+	}
+}
+
+```# Ipphoney
+if [type] == "Ipphoney" {
+	date {
+		match => ["timestamp", "ISO8601"]
+	}
+	mutate {
+		rename => {
+			"query" => "ipp_query"
+			# "content_type" => "http.http_content_type"
+			"dst_port" => "dest_port"
+			"dst_ip" => "dest_ip"
+			"request" => "request_method"
+			"operation" => "data"
+			"user_agent" => "http_user_agent"
+			# "url" => "http.url"
+		}
+	}
+}
 
 8. Save the file and run the following to modify permissions to allow T-Pot service access.
     
