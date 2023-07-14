@@ -1,0 +1,204 @@
+[
+    {
+    	"logsource": "tpot",
+        "timestamp": "2023-07-03T12:29:11.872727Z",
+		"src_ip": "1.1.1.1",
+		"dest_ip": "2.2.2.2",
+		"src_port": "22",
+		"dest_port": "22",
+		"fatt_gquic": {},
+		"fatt_rdp": {},
+		"fatt_ssh": {},
+		"fatt_tls": {
+			"ja3Extensions": "0-11-10-35-22-23-49-13-43-45-51-21",
+			"ja3": "c79a772a288596e3dd89908d83431cb7",
+			"ja3s": "837430e5b4431f78f82cf6991c1b0def",
+			"ja3EcFmt": "0-1-2",
+			"serverName": "umsajqptqtm1hmjg50pm.blob.core.windows.net",
+			"ja3Algorithms": "771,0x1302-0x1303-0x1301-0xc02c-0xc030-0x009f-0xcca9-0xcca8-0xccaa-0xc02b-0xc02f-0x009e-0xc024-0xc028-0x006b-0xc023-0xc027-0x0067-0xc00a-0xc014-0x0039-0xc009-0xc013-0x0033-0x009d-0x009c-0x003d-0x003c-0x0035-0x002f-0x00ff,0-11-10-35-22-23-49-13-43-45-51-21,29-23-30-25-24,0-1-2",
+			"ja3Version": "771",
+			"ja3Ciphers": "0x1302-0x1303-0x1301-0xc02c-0xc030-0x009f-0xcca9-0xcca8-0xccaa-0xc02b-0xc02f-0x009e-0xc024-0xc028-0x006b-0xc023-0xc027-0x0067-0xc00a-0xc014-0x0039-0xc009-0xc013-0x0033-0x009d-0x009c-0x003d-0x003c-0x0035-0x002f-0x00ff",
+			"ja3Ec": "29-23-30-25-24"
+		},
+		"level": "",
+		"accept_language": "en;q=0.9",
+		"type": "Cowrie",
+		"time": "2023-07-03T00:00:00.000Z",
+		"tags": [
+			"_geoip_lookup_failure"
+		],
+		"fatt_http": {
+			"clientHeaderOrder": "request_uri_path,request_uri_query,request_uri_query_parameter,host,accept_encoding,connection,user_agent",
+			"requestFullURI": "http://168.63.129.16/machine/?comp=goalstate",
+			"userAgent": "WALinuxAgent/2.2.47",
+			"clientHeaderHash": "58a4c0692b1cd8e1a3cc8799c6d8d86f",
+			"requestMethod": "GET",
+			"requestURI": "/machine/?comp=goalstate",
+			"requestVersion": "HTTP/1.1"
+		},
+		"id": "",
+		"aetitle": "",
+		"input": "",
+		"files": "",
+		"src_hostname": "",
+		"connection": {
+			"type": "accept",
+			"protocol": "mssqld",
+			"transport": "tcp"
+		},
+		"ftp": {
+			"commands": {
+				"command": [
+					"AUTH"
+				],
+				"arguments": [
+					"TLS"
+				]
+			}
+		},
+		"kexAlgs": [
+			"ecdh-sha2-nistp256",
+			"ecdh-sha2-nistp384",
+			"ecdh-sha2-nistp521",
+			"diffie-hellman-group-exchange-sha256",
+			"diffie-hellman-group-exchange-sha1",
+			"diffie-hellman-group14-sha1",
+			"diffie-hellman-group1-sha1"
+		],
+		"macCS": [
+			"hmac-sha2-256",
+			"hmac-sha2-512",
+			"hmac-sha1",
+			"hmac-sha1-96",
+			"hmac-md5",
+			"hmac-md5-96",
+			"hmac-ripemd160",
+			"hmac-ripemd160@openssh.com"
+		],
+		"compCS": [
+			"none"
+		],
+		"encCS": [
+			"aes128-ctr",
+			"aes192-ctr",
+			"aes256-ctr",
+			"aes256-cbc",
+			"rijndael-cbc@lysator.liu.se",
+			"aes192-cbc",
+			"aes128-cbc",
+			"blowfish-cbc",
+			"arcfour128",
+			"arcfour",
+			"cast128-cbc",
+			"3des-cbc"
+		],
+		"langCS": [
+			""
+		],
+		"hassh": "1616c6d18e845e7a01168a44591f7a35",
+		"hasshAlgorithms": "ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1;aes128-ctr,aes192-ctr,aes256-ctr,aes256-cbc,rijndael-cbc@lysator.liu.se,aes192-cbc,aes128-cbc,blowfish-cbc,arcfour128,arcfour,cast128-cbc,3des-cbc;hmac-sha2-256,hmac-sha2-512,hmac-sha1,hmac-sha1-96,hmac-md5,hmac-md5-96,hmac-ripemd160,hmac-ripemd160@openssh.com;none",
+		"size": 3173,
+		"identifier": "",
+		"arch": "linux-am33-lsb",
+		"ttylog": "log/tty/19bd3cf85b72114d5b4c8e31b3c91d722dc6ac92ada67cbdd467bef95cb6d08c",
+		"st": "upnp:rootdevice",
+		"matches": "",
+		"session": "7e564712cbac",
+		"version": "",
+		"duplicate": false,
+		"content_type": "",
+		"event_type": "CONNECTION_LOST",
+		"request_method": "",
+		"http_user_agent": "",
+		"public_ip": "40.76.178.241",
+
+        "eventid": "cowrie.session.closed",
+        "duration": 10.34404444694519,
+		"password": "ubnt",
+		"username": "ubnt",
+        "message": "Connection lost after 10 seconds",
+        "sensor": "387d64f08464",
+		"bytes": "",
+		"url": "",
+		"sensorid": "conpot",
+		"reason": "",
+		"request": {
+			"oid": "1.3.6.1.2.1.1.1.0",
+			"val": ""
+		},
+		"response": {
+			"oid": "1.3.6.1.2.1.1.1.0",
+			"val": "Siemens, SIMATIC, S7-300"
+		},
+		"ipp_query": "",
+		"data_type": "IEC104",
+		"path": "/data/conpot/log/conpot_IEC104.json",
+		"data": "",
+		"request_uri": "",
+		"request_data": "",
+		"src_url": "http://5.181.80.102/armv7l",
+		"shasum": "a6343f61a74b6dd4944ece328fa549deb751ebedcc13ce49c6bf3bd81d27a3a1",
+		"outfile": "dl/a6343f61a74b6dd4944ece328fa549deb751ebedcc13ce49c6bf3bd81d27a3a1.raw",
+		"filename": "armv7l",
+		"unixtime": 1688673914,
+		"t-pot_ip_ext": "40.76.178.241",
+		"fileinfoname": "/favicon.ico",
+		"host": "4b2c8c0db01d",
+		"t-pot_ip_int": "10.0.2.4",
+		"ip_rep": "mass scanner",
+		"fileinfostate": "Header",
+		"httpmethod": "GET",
+		"mx": "3",
+		"req_size": 94,
+		"req_pkt": "TS1TRUFSQ0ggKiBIVFRQLzEuMQ0KSG9zdDogMjM5LjI1NS4yNTUuMjUwOjE5MDANCk1hbjogInNzZHA6ZGlzY292ZXIiDQpNWDogMw0KU1Q6IHNzZHA6YWxsDQoNCg==",
+		"mode": "MONLIST",
+		"resp_size": 1024,
+		"dns_name": "chron.com",
+		"dns_type": "TXT",
+		"dns_cls": "IN",
+		"opcode": 0,
+		"geoip": {
+			"timezone": "Asia/Shanghai",
+			"location": {
+				"lat": 34.7732,
+				"lon": 113.722
+			},
+			"continent_code": "AS",
+			"country_name": "China",
+			"country_code2": "CN",
+			"as_org": "Chinanet",
+			"ip": "113.24.187.100",
+			"asn": 4134,
+			"latitude": 34.7732,
+			"country_code3": "CN",
+			"longitude": 113.722
+		},
+		"t-pot_hostname": "tragicsaw",
+		"geoip_ext": {
+			"timezone": "America/New_York",
+			"region_name": "Virginia",
+			"region_code": "VA",
+			"location": {
+				"lat": 37.9273,
+				"lon": -76.8545
+			},
+			"continent_code": "NA",
+			"country_name": "United States",
+			"country_code2": "US",
+			"postal_code": "22560",
+			"dma_code": 556,
+			"as_org": "MICROSOFT-CORP-MSN-AS-BLOCK",
+			"ip": "40.76.178.241",
+			"asn": 8075,
+			"latitude": 37.9273,
+			"city_name": "Tappahannock",
+			"country_code3": "US",
+			"longitude": -76.8545
+		},		
+		"City": "Charlotte",
+		"ASN": "AS5432",
+    	"ls_timestamp": "2023-07-03T00:00:00.000Z",
+    	"ls_version": "1",
+        "protocol": "tls"
+    }
+]
