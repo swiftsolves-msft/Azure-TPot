@@ -57,7 +57,7 @@ The next steps will involve updating Azure VM T-Pot to install_microsoft-sentine
     
     `systemctl stop tpot`
     
-5.  modify the _/data/elk/logstash.conf_ by scrolling close to the end and adding a second Output configuration for Microsoft Sentinel. Be sure to fill in the information collected from previous steps.
+5.  modify the _/data/elk/logstash.conf_ by scrolling close to the end and adding a second Output configuration for Microsoft Sentinel. Be sure to fill in the information collected from previous steps. an overall sample file can be found here: [logstash.conf](https://github.com/swiftsolves-msft/Azure-TPot/blob/main/sample/tpot_all/logstash.conf)
     
     `microsoft-sentinel-logstash-output-plugin {`
     
@@ -81,7 +81,7 @@ The next steps will involve updating Azure VM T-Pot to install_microsoft-sentine
     
     `}`
     
-6. modify the _/data/elk/logstash.conf_ by scrolling in a few sections making changes via remarks below. # CitrixHoneypot an overall sample file can be found here: 
+6. modify the _/data/elk/logstash.conf_ by scrolling in a few sections making changes via remarks below. # CitrixHoneypot an overall sample file can be found here: [logstash.conf](https://github.com/swiftsolves-msft/Azure-TPot/blob/main/sample/tpot_all/logstash.conf)
 
     ```# CitrixHoneypot
     if [type] == "CitrixHoneypot" {
@@ -113,7 +113,7 @@ The next steps will involve updating Azure VM T-Pot to install_microsoft-sentine
     }
     ```
 
-7. modify the _/data/elk/logstash.conf_ by scrolling in a few sections and Remarking out via below. # ElasticPot, # Ipphoney, an overall sample file can be found here: 
+7. modify the _/data/elk/logstash.conf_ by scrolling in a few sections and Remarking out via below. # ElasticPot, # Ipphoney, an overall sample file can be found here: [logstash.conf](https://github.com/swiftsolves-msft/Azure-TPot/blob/main/sample/tpot_all/logstash.conf)
 
 ```# ElasticPot
 if [type] == "ElasticPot" {
