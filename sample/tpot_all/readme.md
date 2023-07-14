@@ -163,7 +163,7 @@ if [type] == "Ipphoney" {
     chown tpot:tpot /data/elk/logstash.conf
 ```
 
-9. Save the file and in this next step you will now modify tpot.yml service file to install the Microsoft Sentinel plugin. with your editor edit the following file: _/opt/tpot/etc/tpot.yml_
+9. In this next step you will now modify tpot.yml service file to install the Microsoft Sentinel plugin. with your editor edit the following file: _/opt/tpot/etc/tpot.yml_
 
 10.  Scroll towrds bottom and remark # out the image and add the following lines with proper indents (two spaces). This will allow on next T-Pot service start to force a new image build using this information rather than pull the image from docker hub. It will also grab and use the copied and modified logstash.conf in /data you brought over and edited in the beginning of steps to use a Output plugin for Microsoft Sentinel.
     
@@ -188,15 +188,15 @@ if [type] == "Ipphoney" {
      - /data/elk/logstash.conf:/etc/logstash/logstash.conf
 ```
 
-11.  Next you will modify a Dockerfile for logstash at: _/opt/tpot/docker/elk/logstash/Dockerfile ,_
+11.  Save the file and Next you will modify a Dockerfile for logstash at: _/opt/tpot/docker/elk/logstash/Dockerfile ,_
 
-10.  Insert the following line of code below the _bin/logstash-plugin update_
+12.  Insert the following line of code below the _bin/logstash-plugin update_
     
     `bin/logstash-plugin install microsoft-sentinel-logstash-output-plugin && \`
 
-12.  Save the file and then run: `systemctl start tpot`
+13.  Save the file and then run: `systemctl start tpot`
     
-13.  In the CockPit service go to Services and scroll down to tpot service and goto All Logs - ensure the tpot service launches correctly without obvious errors on LogStash docker container. below are some signs of successful launch with new modifications
+14.  In the CockPit service go to Services and scroll down to tpot service and goto All Logs - ensure the tpot service launches correctly without obvious errors on LogStash docker container. below are some signs of successful launch with new modifications
 
 ![enter image description here](https://raw.githubusercontent.com/swiftsolves-msft/Azure-TPot/main/images/tpotload1.png)
 
