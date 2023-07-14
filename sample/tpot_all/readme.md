@@ -14,7 +14,7 @@ To begin with you can deploy the Microsoft Sentinel prerequisites for collecting
     
 4.  As part of the setup create a new data collection rule. In this example using a name ***tpotdcr*** and choose the DCE created in Step 2
     
-5.  Next, on Schema and transformation [download the sample data file for tpot here](https://github.com/swiftsolves-msft/Azure-TPot/blob/main/sample/tpot/tpot-datasample.json): and Upload sample file.
+5.  Next, on Schema and transformation [download the sample data file for tpot here](https://github.com/swiftsolves-msft/Azure-TPot/blob/main/sample/tpot_all/tpotsentinel-datasample.json)): and Upload sample file.
     
 6.  Click on Transformation Editor and add the following, run and apply
     
