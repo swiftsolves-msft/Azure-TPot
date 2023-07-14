@@ -169,44 +169,27 @@ if [type] == "Ipphoney" {
     
 12.  remark # out the image and add the following lines with proper indents (two spaces). This will allow on next T-Pot service start to force a new image build using this information rather than pull the image from docker hub. It will also grab and use the copied and modified logstash.conf in /data you brought over and edited in the beginning of steps to use a Output plugin for Microsoft Sentinel.
     
-    `## Logstash service`
-    
-    `logstash:`
-    
-    **_build:_**
-    
-    **_context: /opt/tpot/docker/elk/logstash_**
-    
-    **_dockerfile: ./Dockerfile_**
-    
-    `container_name: logstash`
-    
-    `restart: always`
-    
-    `environment:`
-    
-    `- LS_JAVA_OPTS=-Xms1024m -Xmx1024m`
-    
-    `depends_on:`
-    
-    `elasticsearch:`
-    
-    `condition: service_healthy`
-    
-    `env_file:`
-    
-    `- /opt/tpot/etc/compose/elk_environment`
-    
-    `mem_limit: 2g`
-    
-    **_# image: "dtagdevsec/logstash:2204"_**
-    
-    `volumes:`
-    
-    `- /data:/data`
-    
-    **_- /data/elk/logstash.conf:/etc/logstash/logstash.conf_**
-    
+```## Logstash service
+  logstash:
+    build:
+      context: /opt/tpot/docker/elk/logstash
+      dockerfile: ./Dockerfile
+    container_name: logstash
+    restart: always
+    environment:
+     - LS_JAVA_OPTS=-Xms1024m -Xmx1024m
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    env_file:
+     - /opt/tpot/etc/compose/elk_environment
+    mem_limit: 2g
+    #image: "dtagdevsec/logstash:2204"
+    volumes:
+     - /data:/data
+     - /data/elk/logstash.conf:/etc/logstash/logstash.conf
+```
+
 12.  Save the file and then run: `systemctl start tpot`
     
 13.  In the CockPit service go to Services and scroll down to tpot service and goto All Logs - ensure the tpot service launches correctly without obvious errors on LogStash docker container. below are some signs of successful launch with new modifications
