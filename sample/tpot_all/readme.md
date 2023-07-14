@@ -48,10 +48,11 @@ The next steps will involve updating Azure VM T-Pot to install_microsoft-sentine
     
 3.  Run the following bash commands to enter Logstash docker bash, copy logstash.conf to /data mount on T-Pot VM and exit Logstash docker bash:
     
-    `docker exec -it logstash bash  
+    ```docker exec -it logstash bash  
     cd /etc/logstash/  
     cp logstash.conf /data/elk/logstash.conf  
-    exit`
+    exit
+    ```
     
 4.  Stop tpot service:
     
