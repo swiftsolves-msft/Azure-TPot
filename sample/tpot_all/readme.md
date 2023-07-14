@@ -110,7 +110,8 @@ The next steps will involve updating Azure VM T-Pot to install_microsoft-sentine
     			"fileinfo.state" => "fileinfostate" # Rename - ? , Grok earlier possible make change there.
     		}
     	}
-    }```
+    }
+    ```
 
 7. modify the _/data/elk/logstash.conf_ by scrolling in a few sections and Remarking out via below. # ElasticPot, # Ipphoney, an overall sample file can be found here: 
 
@@ -130,7 +131,8 @@ if [type] == "ElasticPot" {
 			# "url" => "http.url"
 		}
 	}
-}```
+}
+```
 
 ```# Ipphoney
 if [type] == "Ipphoney" {
@@ -149,7 +151,8 @@ if [type] == "Ipphoney" {
 			# "url" => "http.url"
 		}
 	}
-}```
+}
+```
 
 8. Save the file and run the following to modify permissions to allow T-Pot service access.
     
