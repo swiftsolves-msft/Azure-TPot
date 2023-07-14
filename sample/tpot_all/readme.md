@@ -31,7 +31,7 @@ To begin with you can deploy the Microsoft Sentinel prerequisites for collecting
     
 7.  Click next and then create.
     
-8.  Go to Azure Monitor and the Sata Collection Rules blade and select tpotdcr and click the JSON View in top right corner and copy the **immutableid**
+8.  Go to Azure Monitor and the Data Collection Rules blade and select tpotdcr and click the JSON View in top right corner and copy the **immutableid**
     
 9.  Copy the **streamDeclarations** json object name
     
