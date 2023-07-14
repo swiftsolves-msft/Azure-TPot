@@ -191,8 +191,10 @@ if [type] == "Ipphoney" {
 11.  Save the file and Next you will modify a Dockerfile for logstash at: _/opt/tpot/docker/elk/logstash/Dockerfile ,_
 
 12.  Insert the following line of code below the _bin/logstash-plugin update_
-    
-    `bin/logstash-plugin install microsoft-sentinel-logstash-output-plugin && \`
+
+```
+    bin/logstash-plugin install microsoft-sentinel-logstash-output-plugin && \
+```
 
 13.  Save the file and then run: `systemctl start tpot`
     
