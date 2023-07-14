@@ -210,3 +210,7 @@ if [type] == "Ipphoney" {
 12.  Save the file and then run: `systemctl start tpot`
     
 13.  In the CockPit service go to Services and scroll down to tpot service and goto All Logs - ensure the tpot service launches correctly without obvious errors on LogStash docker container. below are some signs of successful launch with new modifications
+
+![enter image description here](https://raw.githubusercontent.com/swiftsolves-msft/Azure-TPot/main/images/tpotload1.png)
+
+![enter image description here](https://raw.githubusercontent.com/swiftsolves-msft/Azure-TPot/main/images/tpotload2.png)
