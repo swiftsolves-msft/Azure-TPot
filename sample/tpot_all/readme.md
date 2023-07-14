@@ -35,7 +35,7 @@ To begin with you can deploy the Microsoft Sentinel prerequisites for collecting
     
 9.  Copy the **streamDeclarations** json object name
     
-10.  Click on Access Control (IAM) and add the Application Registration name from Step 1 earlier as a **_‘Monitoring Metrics Publisher’_** role, click review + assign.
+10.  On the DCR, click on Access Control (IAM) and add the Application Registration name from Step 1 earlier as a **_‘Monitoring Metrics Publisher’_** role, click review + assign.
     
 
 ### Azure VM T-Pot Configuration
