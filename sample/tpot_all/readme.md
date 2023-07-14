@@ -130,7 +130,7 @@ if [type] == "ElasticPot" {
 			# "url" => "http.url"
 		}
 	}
-}
+}```
 
 ```# Ipphoney
 if [type] == "Ipphoney" {
