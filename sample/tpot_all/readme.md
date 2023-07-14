@@ -157,13 +157,15 @@ if [type] == "Ipphoney" {
 ```
 
 8. Save the file and run the following to modify permissions to allow T-Pot service access.
+
+```
+    chmod 760 /data/elk/logstash.conf  
+    chown tpot:tpot /data/elk/logstash.conf
+```
+ 
+8.  Next you will modify a Dockerfile for logstash at: _/opt/tpot/docker/elk/logstash/Dockerfile ,_
     
-    `chmod 760 /data/elk/logstash.conf  
-    chown tpot:tpot /data/elk/logstash.conf`
-    
-9.  Next you will modify a Dockerfile for logstash at: _/opt/tpot/docker/elk/logstash/Dockerfile ,_
-    
-10.  Insert the following line of code below the _bin/logstash-plugin update_
+9.  Insert the following line of code below the _bin/logstash-plugin update_
     
     `bin/logstash-plugin install microsoft-sentinel-logstash-output-plugin && \`
     
