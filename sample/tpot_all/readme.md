@@ -81,35 +81,39 @@ The next steps will involve updating Azure VM T-Pot to install_microsoft-sentine
     
     `}`
     
-6. modify the _/data/elk/logstash.conf_ by scrolling in a few sections making changes via remarks below.
+6. modify the _/data/elk/logstash.conf_ by scrolling in a few sections making changes via remarks below. # CitrixHoneypot, # Ipphoney, # ElasticPot, an overall sample file can be found here: 
 
-`# CitrixHoneypot
-`  if [type] == "CitrixHoneypot" {
-`    grok { 
-`      match => { 
-`        "message" => [ "\A\(%{IPV4:src_ip:string}:%{INT:src_port:integer}\): %{JAVAMETHOD:http.http_method:string}%{SPACE}%{CISCO_REASON:fileinfo.state:string}: %{UNIXPATH:fileinfo.filename:string}", 
-`                       "\A\(%{IPV4:src_ip:string}:%{INT:src_port:integer}\): %{JAVAMETHOD:http.http_method:string}%{SPACE}%{CISCO_REASON:fileinfo.state:string}: %{GREEDYDATA:payload:string}", 
-`                       "\A\(%{IPV4:src_ip:string}:%{INT:src_port:integer}\): %{S3_REQUEST_LINE:msg:string} %{CISCO_REASON:fileinfo.state:string}: %{GREEDYDATA:payload:string:string}",
-`                       "\A\(%{IPV4:src_ip:string}:%{INT:src_port:integer}\): %{GREEDYDATA:msg:string}" ] 
-`      } 
-`    }
-`    date {
-`      match => [ "asctime", "ISO8601" ]
-`      remove_field => ["asctime"]
-`      remove_field => ["message"]
-`    }
-`    mutate {
-`      add_field => {
-`        "dest_port" => "443"
-`      }
-`      rename => {
-`        "levelname" => "level"
-`        "http.http_method" => "httpmethod"  # Rename - ? , Grok earlier possible make change there.
-`        "fileinfo.filename" => "fileinfoname"  # Rename - ? , Grok earlier possible make change there.
-`        "fileinfo.state" => "fileinfostate"  # Rename - ? , Grok earlier possible make change there.
-`      }
-`    }
-`  } 
+    # CitrixHoneypot
+    if [type] == "CitrixHoneypot" {
+    	grok {
+    		match => {
+    			"message" => ["\A\(%{IPV4:src_ip:string}:%{INT:src_port:integer}\): %{JAVAMETHOD:http.http_method:string}%{SPACE}%{CISCO_REASON:fileinfo.state:string}: %{UNIXPATH:fileinfo.filename:string}",
+    				"\A\(%{IPV4:src_ip:string}:%{INT:src_port:integer}\): %{JAVAMETHOD:http.http_method:string}%{SPACE}%{CISCO_REASON:fileinfo.state:string}: %{GREEDYDATA:payload:string}",
+    				"\A\(%{IPV4:src_ip:string}:%{INT:src_port:integer}\): %{S3_REQUEST_LINE:msg:string} %{CISCO_REASON:fileinfo.state:string}: %{GREEDYDATA:payload:string:string}",
+    				"\A\(%{IPV4:src_ip:string}:%{INT:src_port:integer}\): %{GREEDYDATA:msg:string}"
+    			]
+    		}
+    	}
+    	date {
+    		match => ["asctime", "ISO8601"]
+    		remove_field => ["asctime"]
+    		remove_field => ["message"]
+    	}
+    	mutate {
+    		add_field => {
+    			"dest_port" => "443"
+    		}
+    		rename => {
+    			"levelname" => "level"
+    			"http.http_method" => "httpmethod"
+    			# Rename - ? , Grok earlier possible make change there.
+    			"fileinfo.filename" => "fileinfoname"
+    			# Rename - ? , Grok earlier possible make change there.
+    			"fileinfo.state" => "fileinfostate"
+    			# Rename - ? , Grok earlier possible make change there.
+    		}
+    	}
+    }
 
 
 
