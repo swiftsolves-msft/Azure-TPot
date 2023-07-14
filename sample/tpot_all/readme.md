@@ -83,7 +83,7 @@ The next steps will involve updating Azure VM T-Pot to install_microsoft-sentine
     
 6. modify the _/data/elk/logstash.conf_ by scrolling in a few sections making changes via remarks below. # CitrixHoneypot, # Ipphoney, # ElasticPot, an overall sample file can be found here: 
 
-    # CitrixHoneypot
+    ```# CitrixHoneypot
     if [type] == "CitrixHoneypot" {
     	grok {
     		match => {
@@ -113,7 +113,7 @@ The next steps will involve updating Azure VM T-Pot to install_microsoft-sentine
     			# Rename - ? , Grok earlier possible make change there.
     		}
     	}
-    }
+    }```
 
 
 
