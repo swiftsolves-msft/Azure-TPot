@@ -17,7 +17,8 @@ To begin with you can deploy the Microsoft Sentinel prerequisites for collecting
 5.  Next, on Schema and transformation [download the sample data file for tpot here](https://github.com/swiftsolves-msft/Azure-TPot/blob/main/sample/tpot_all/tpotsentinel-datasample.json): and Upload sample file.
     
 6.  Click on Transformation Editor and add the following, run and apply
-    
+
+    ```
     source
     | extend TimeGenerated = todatetime(timestamp)
     | project-rename
@@ -28,6 +29,7 @@ To begin with you can deploy the Microsoft Sentinel prerequisites for collecting
         tpotid = ['id'],
         tpotuuid = ['uuid'],
         honeypotType = type
+    ```
     
 7.  Click next and then create.
     
