@@ -1,4 +1,4 @@
-# T-Pot configuration changes for Micrsoft Sentinel
+# T-Pot configuration changes for Microsoft Sentinel
 
 The following instructions and sample data help to install 
 
