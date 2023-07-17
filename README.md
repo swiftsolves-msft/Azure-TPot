@@ -72,4 +72,4 @@ Please study the rules carefully. You may need to make some additional rules or 
 
 ## Post Install - Deploy Sentinel Ingestion for T-Pot alerts and logs
 
-Deploy the [Sentinel Components] (https://github.com/swiftsolves-msft/Azure-TPot/tree/main/sample/tpot_all/deployment) and for now [manually configure the T-Pot as follows](https://github.com/swiftsolves-msft/Azure-TPot/tree/main/sample/tpot_all#azure-vm-t-pot-configuration)
+Deploy the [Sentinel Components](https://github.com/swiftsolves-msft/Azure-TPot/tree/main/sample/tpot_all/deployment) and for now [manually configure the T-Pot as follows](https://github.com/swiftsolves-msft/Azure-TPot/tree/main/sample/tpot_all#azure-vm-t-pot-configuration)
