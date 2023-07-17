@@ -1,0 +1,1432 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"loganalyticsworkspacename": {
+			"defaultValue": "UNIQUENAMEHERE",
+			"type": "String"
+		},
+		"tpotdce": {
+			"defaultValue": "tpotdce",
+			"type": "String"
+		},
+		"tpotdcr": {
+			"defaultValue": "tpotdcr",
+			"type": "String"
+		}
+	},
+	"variables": {
+		"tpot": "tpot_CL"
+	},
+	"resources": [{
+			"type": "Microsoft.Insights/dataCollectionEndpoints",
+			"apiVersion": "2022-06-01",
+			"name": "[parameters('tpotdce')]",
+			"location": "[resourceGroup().location]",
+			"properties": {
+				"configurationAccess": {},
+				"logsIngestion": {},
+				"networkAcls": {
+					"publicNetworkAccess": "Enabled"
+				}
+			}
+		},
+		{
+			"type": "Microsoft.OperationalInsights/workspaces",
+			"apiVersion": "2021-12-01-preview",
+			"name": "[parameters('loganalyticsworkspacename')]",
+			"location": "[resourceGroup().location]",
+			"properties": {
+				"sku": {
+					"name": "pergb2018"
+				},
+				"retentionInDays": 30,
+				"features": {
+					"enableLogAccessUsingOnlyResourcePermissions": true
+				},
+				"workspaceCapping": {
+					"dailyQuotaGb": -1
+				},
+				"publicNetworkAccessForIngestion": "Enabled",
+				"publicNetworkAccessForQuery": "Enabled"
+			}
+		},
+		{
+			"type": "Microsoft.OperationalInsights/workspaces/tables",
+			"apiVersion": "2021-12-01-preview",
+			"name": "[concat(parameters('loganalyticsworkspacename'), '/tpot_CL')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.OperationalInsights/workspaces', parameters('loganalyticsworkspacename'))]"
+			],
+			"properties": {
+				"totalRetentionInDays": 30,
+				"plan": "Analytics",
+				"schema": {
+					"name": "tpot_CL",
+					"columns": [{
+							"name": "accept_language",
+							"type": "datetime"
+						},
+						{
+							"name": "action",
+							"type": "string"
+						},
+						{
+							"name": "aetitle",
+							"type": "string"
+						},
+						{
+							"name": "alert",
+							"type": "dynamic"
+						},
+						{
+							"name": "app_name",
+							"type": "string"
+						},
+						{
+							"name": "app_proto",
+							"type": "string"
+						},
+						{
+							"name": "app_version",
+							"type": "string"
+						},
+						{
+							"name": "arch",
+							"type": "string"
+						},
+						{
+							"name": "args",
+							"type": "string"
+						},
+						{
+							"name": "ASN",
+							"type": "string"
+						},
+						{
+							"name": "attack_connection",
+							"type": "dynamic"
+						},
+						{
+							"name": "body_bytes_sent",
+							"type": "string"
+						},
+						{
+							"name": "bytes",
+							"type": "string"
+						},
+						{
+							"name": "bytes_sent",
+							"type": "string"
+						},
+						{
+							"name": "called_number",
+							"type": "string"
+						},
+						{
+							"name": "City",
+							"type": "string"
+						},
+						{
+							"name": "collected_method",
+							"type": "string"
+						},
+						{
+							"name": "compCS",
+							"type": "dynamic"
+						},
+						{
+							"name": "connection",
+							"type": "dynamic"
+						},
+						{
+							"name": "connection_requests",
+							"type": "string"
+						},
+						{
+							"name": "connection_serial",
+							"type": "string"
+						},
+						{
+							"name": "content_type",
+							"type": "string"
+						},
+						{
+							"name": "cookies",
+							"type": "dynamic"
+						},
+						{
+							"name": "created_by_node_id",
+							"type": "string"
+						},
+						{
+							"name": "data",
+							"type": "string"
+						},
+						{
+							"name": "data_type",
+							"type": "string"
+						},
+						{
+							"name": "dest_ip",
+							"type": "string"
+						},
+						{
+							"name": "dest_port",
+							"type": "string"
+						},
+						{
+							"name": "dnp3",
+							"type": "dynamic"
+						},
+						{
+							"name": "dns",
+							"type": "dynamic"
+						},
+						{
+							"name": "dns_cls",
+							"type": "string"
+						},
+						{
+							"name": "dns_name",
+							"type": "string"
+						},
+						{
+							"name": "dns_type",
+							"type": "string"
+						},
+						{
+							"name": "download_count",
+							"type": "int"
+						},
+						{
+							"name": "download_tries",
+							"type": "int"
+						},
+						{
+							"name": "duplicate",
+							"type": "boolean"
+						},
+						{
+							"name": "duration",
+							"type": "real"
+						},
+						{
+							"name": "encCS",
+							"type": "dynamic"
+						},
+						{
+							"name": "event_type",
+							"type": "string"
+						},
+						{
+							"name": "event_uuid",
+							"type": "string"
+						},
+						{
+							"name": "eventid",
+							"type": "string"
+						},
+						{
+							"name": "fatt_gquic",
+							"type": "dynamic"
+						},
+						{
+							"name": "fatt_http",
+							"type": "dynamic"
+						},
+						{
+							"name": "fatt_rdp",
+							"type": "dynamic"
+						},
+						{
+							"name": "fatt_ssh",
+							"type": "dynamic"
+						},
+						{
+							"name": "fatt_tls",
+							"type": "dynamic"
+						},
+						{
+							"name": "fileinfo",
+							"type": "dynamic"
+						},
+						{
+							"name": "fileinfoname",
+							"type": "string"
+						},
+						{
+							"name": "fileinfostate",
+							"type": "string"
+						},
+						{
+							"name": "filename",
+							"type": "string"
+						},
+						{
+							"name": "files",
+							"type": "string"
+						},
+						{
+							"name": "ftp",
+							"type": "dynamic"
+						},
+						{
+							"name": "geoip",
+							"type": "dynamic"
+						},
+						{
+							"name": "geoip_ext",
+							"type": "dynamic"
+						},
+						{
+							"name": "gzip_ratio",
+							"type": "string"
+						},
+						{
+							"name": "hassh",
+							"type": "string"
+						},
+						{
+							"name": "hasshAlgorithms",
+							"type": "string"
+						},
+						{
+							"name": "headers",
+							"type": "dynamic"
+						},
+						{
+							"name": "host",
+							"type": "string"
+						},
+						{
+							"name": "http",
+							"type": "dynamic"
+						},
+						{
+							"name": "http_cf_ray",
+							"type": "string"
+						},
+						{
+							"name": "http_referer",
+							"type": "string"
+						},
+						{
+							"name": "http_user_agent",
+							"type": "string"
+						},
+						{
+							"name": "http_x_forwarded_for",
+							"type": "string"
+						},
+						{
+							"name": "httpmethod",
+							"type": "string"
+						},
+						{
+							"name": "tpotid",
+							"type": "string"
+						},
+						{
+							"name": "identifier",
+							"type": "string"
+						},
+						{
+							"name": "in_iface",
+							"type": "string"
+						},
+						{
+							"name": "input",
+							"type": "string"
+						},
+						{
+							"name": "ip_rep",
+							"type": "string"
+						},
+						{
+							"name": "ipp_query",
+							"type": "string"
+						},
+						{
+							"name": "is_virtual",
+							"type": "boolean"
+						},
+						{
+							"name": "kexAlgs",
+							"type": "dynamic"
+						},
+						{
+							"name": "langCS",
+							"type": "dynamic"
+						},
+						{
+							"name": "level",
+							"type": "string"
+						},
+						{
+							"name": "logsource",
+							"type": "string"
+						},
+						{
+							"name": "ls_timestamp",
+							"type": "datetime"
+						},
+						{
+							"name": "ls_version",
+							"type": "string"
+						},
+						{
+							"name": "macCS",
+							"type": "dynamic"
+						},
+						{
+							"name": "matches",
+							"type": "string"
+						},
+						{
+							"name": "message",
+							"type": "string"
+						},
+						{
+							"name": "metadata",
+							"type": "dynamic"
+						},
+						{
+							"name": "mode",
+							"type": "string"
+						},
+						{
+							"name": "mqtt",
+							"type": "dynamic"
+						},
+						{
+							"name": "msec",
+							"type": "string"
+						},
+						{
+							"name": "msg",
+							"type": "string"
+						},
+						{
+							"name": "mx",
+							"type": "string"
+						},
+						{
+							"name": "opcode",
+							"type": "int"
+						},
+						{
+							"name": "operation_mode",
+							"type": "int"
+						},
+						{
+							"name": "outfile",
+							"type": "string"
+						},
+						{
+							"name": "password",
+							"type": "string"
+						},
+						{
+							"name": "path",
+							"type": "string"
+						},
+						{
+							"name": "payload",
+							"type": "string"
+						},
+						{
+							"name": "payload_printable",
+							"type": "string"
+						},
+						{
+							"name": "peer",
+							"type": "dynamic"
+						},
+						{
+							"name": "pid",
+							"type": "string"
+						},
+						{
+							"name": "pipe",
+							"type": "string"
+						},
+						{
+							"name": "post_data",
+							"type": "dynamic"
+						},
+						{
+							"name": "protocol",
+							"type": "string"
+						},
+						{
+							"name": "proxy_connection",
+							"type": "dynamic"
+						},
+						{
+							"name": "proxy_host",
+							"type": "string"
+						},
+						{
+							"name": "public_ip",
+							"type": "string"
+						},
+						{
+							"name": "rdp",
+							"type": "dynamic"
+						},
+						{
+							"name": "reason",
+							"type": "string"
+						},
+						{
+							"name": "remote_user",
+							"type": "string"
+						},
+						{
+							"name": "req_pkt",
+							"type": "string"
+						},
+						{
+							"name": "req_size",
+							"type": "int"
+						},
+						{
+							"name": "request",
+							"type": "dynamic"
+						},
+						{
+							"name": "request_data",
+							"type": "string"
+						},
+						{
+							"name": "request_id",
+							"type": "string"
+						},
+						{
+							"name": "request_length",
+							"type": "string"
+						},
+						{
+							"name": "request_method",
+							"type": "string"
+						},
+						{
+							"name": "request_time",
+							"type": "string"
+						},
+						{
+							"name": "request_uri",
+							"type": "string"
+						},
+						{
+							"name": "resp_size",
+							"type": "int"
+						},
+						{
+							"name": "response",
+							"type": "dynamic"
+						},
+						{
+							"name": "response_msg",
+							"type": "dynamic"
+						},
+						{
+							"name": "rfb",
+							"type": "dynamic"
+						},
+						{
+							"name": "scheme",
+							"type": "string"
+						},
+						{
+							"name": "sensor",
+							"type": "string"
+						},
+						{
+							"name": "sensorid",
+							"type": "string"
+						},
+						{
+							"name": "server_name",
+							"type": "string"
+						},
+						{
+							"name": "server_protocol",
+							"type": "string"
+						},
+						{
+							"name": "session",
+							"type": "string"
+						},
+						{
+							"name": "shasum",
+							"type": "string"
+						},
+						{
+							"name": "sip",
+							"type": "dynamic"
+						},
+						{
+							"name": "sip_message",
+							"type": "string"
+						},
+						{
+							"name": "sip_method",
+							"type": "string"
+						},
+						{
+							"name": "sip_user_agent",
+							"type": "string"
+						},
+						{
+							"name": "size",
+							"type": "int"
+						},
+						{
+							"name": "smtp_input",
+							"type": "dynamic"
+						},
+						{
+							"name": "snmp",
+							"type": "dynamic"
+						},
+						{
+							"name": "src_hostname",
+							"type": "string"
+						},
+						{
+							"name": "src_ip",
+							"type": "string"
+						},
+						{
+							"name": "src_port",
+							"type": "string"
+						},
+						{
+							"name": "src_url",
+							"type": "string"
+						},
+						{
+							"name": "ssh",
+							"type": "dynamic"
+						},
+						{
+							"name": "ssl_cipher",
+							"type": "string"
+						},
+						{
+							"name": "ssl_protocol",
+							"type": "string"
+						},
+						{
+							"name": "st",
+							"type": "string"
+						},
+						{
+							"name": "status",
+							"type": "int"
+						},
+						{
+							"name": "tags",
+							"type": "dynamic"
+						},
+						{
+							"name": "tpottime",
+							"type": "datetime"
+						},
+						{
+							"name": "time_iso8601",
+							"type": "datetime"
+						},
+						{
+							"name": "time_local",
+							"type": "string"
+						},
+						{
+							"name": "timestamp",
+							"type": "datetime"
+						},
+						{
+							"name": "tls",
+							"type": "dynamic"
+						},
+						{
+							"name": "tpothostname",
+							"type": "string"
+						},
+						{
+							"name": "tpotextipaddr",
+							"type": "string"
+						},
+						{
+							"name": "tpotintipaddr",
+							"type": "string"
+						},
+						{
+							"name": "transport_type",
+							"type": "string"
+						},
+						{
+							"name": "ttylog",
+							"type": "string"
+						},
+						{
+							"name": "tx_id",
+							"type": "int"
+						},
+						{
+							"name": "honeypotType",
+							"type": "string"
+						},
+						{
+							"name": "unixtime",
+							"type": "int"
+						},
+						{
+							"name": "upstream",
+							"type": "string"
+						},
+						{
+							"name": "upstream_cache_status",
+							"type": "string"
+						},
+						{
+							"name": "upstream_connect_time",
+							"type": "string"
+						},
+						{
+							"name": "upstream_header_time",
+							"type": "string"
+						},
+						{
+							"name": "upstream_response_length",
+							"type": "string"
+						},
+						{
+							"name": "upstream_response_time",
+							"type": "string"
+						},
+						{
+							"name": "url",
+							"type": "string"
+						},
+						{
+							"name": "username",
+							"type": "string"
+						},
+						{
+							"name": "tpotuuid",
+							"type": "string"
+						},
+						{
+							"name": "version",
+							"type": "string"
+						},
+						{
+							"name": "TimeGenerated",
+							"type": "datetime"
+						}
+					]
+				},
+				"retentionInDays": 30
+			}
+		},
+		{
+			"type": "Microsoft.Insights/dataCollectionRules",
+			"apiVersion": "2022-06-01",
+			"name": "[parameters('tpotdcr')]",
+			"location": "[resourceGroup().location]",
+			"dependsOn": [
+				"[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('tpotdce'))]",
+				"[resourceId('Microsoft.OperationalInsights/workspaces', parameters('loganalyticsworkspacename'))]",
+				"[resourceId('Microsoft.OperationalInsights/workspaces/tables', parameters('loganalyticsworkspacename'), variables('tpot'))]"
+			],
+			"properties": {
+				"dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('tpotdce'))]",
+				"streamDeclarations": {
+					"Custom-tpot_CL": {
+						"columns": [{
+								"name": "logsource",
+								"type": "string"
+							},
+							{
+								"name": "timestamp",
+								"type": "datetime"
+							},
+							{
+								"name": "src_ip",
+								"type": "string"
+							},
+							{
+								"name": "dest_ip",
+								"type": "string"
+							},
+							{
+								"name": "src_port",
+								"type": "string"
+							},
+							{
+								"name": "dest_port",
+								"type": "string"
+							},
+							{
+								"name": "smtp_input",
+								"type": "dynamic"
+							},
+							{
+								"name": "operation_mode",
+								"type": "int"
+							},
+							{
+								"name": "download_count",
+								"type": "int"
+							},
+							{
+								"name": "download_tries",
+								"type": "int"
+							},
+							{
+								"name": "server_protocol",
+								"type": "string"
+							},
+							{
+								"name": "remote_user",
+								"type": "string"
+							},
+							{
+								"name": "server_name",
+								"type": "string"
+							},
+							{
+								"name": "connection_requests",
+								"type": "string"
+							},
+							{
+								"name": "cookies",
+								"type": "dynamic"
+							},
+							{
+								"name": "tls",
+								"type": "dynamic"
+							},
+							{
+								"name": "metadata",
+								"type": "dynamic"
+							},
+							{
+								"name": "dns",
+								"type": "dynamic"
+							},
+							{
+								"name": "sip",
+								"type": "dynamic"
+							},
+							{
+								"name": "ssh",
+								"type": "dynamic"
+							},
+							{
+								"name": "rdp",
+								"type": "dynamic"
+							},
+							{
+								"name": "snmp",
+								"type": "dynamic"
+							},
+							{
+								"name": "dnp3",
+								"type": "dynamic"
+							},
+							{
+								"name": "ftp",
+								"type": "dynamic"
+							},
+							{
+								"name": "rfb",
+								"type": "dynamic"
+							},
+							{
+								"name": "mqtt",
+								"type": "dynamic"
+							},
+							{
+								"name": "payload_printable",
+								"type": "string"
+							},
+							{
+								"name": "payload",
+								"type": "string"
+							},
+							{
+								"name": "alert",
+								"type": "dynamic"
+							},
+							{
+								"name": "in_iface",
+								"type": "string"
+							},
+							{
+								"name": "tx_id",
+								"type": "int"
+							},
+							{
+								"name": "http",
+								"type": "dynamic"
+							},
+							{
+								"name": "fileinfo",
+								"type": "dynamic"
+							},
+							{
+								"name": "app_proto",
+								"type": "string"
+							},
+							{
+								"name": "peer",
+								"type": "dynamic"
+							},
+							{
+								"name": "post_data",
+								"type": "dynamic"
+							},
+							{
+								"name": "headers",
+								"type": "dynamic"
+							},
+							{
+								"name": "response_msg",
+								"type": "dynamic"
+							},
+							{
+								"name": "uuid",
+								"type": "string"
+							},
+							{
+								"name": "upstream",
+								"type": "string"
+							},
+							{
+								"name": "gzip_ratio",
+								"type": "string"
+							},
+							{
+								"name": "pid",
+								"type": "string"
+							},
+							{
+								"name": "request_id",
+								"type": "string"
+							},
+							{
+								"name": "http_x_forwarded_for",
+								"type": "string"
+							},
+							{
+								"name": "request_time",
+								"type": "string"
+							},
+							{
+								"name": "connection_serial",
+								"type": "string"
+							},
+							{
+								"name": "msec",
+								"type": "string"
+							},
+							{
+								"name": "http_referer",
+								"type": "string"
+							},
+							{
+								"name": "args",
+								"type": "string"
+							},
+							{
+								"name": "bytes_sent",
+								"type": "string"
+							},
+							{
+								"name": "scheme",
+								"type": "string"
+							},
+							{
+								"name": "http_cf_ray",
+								"type": "string"
+							},
+							{
+								"name": "request_length",
+								"type": "string"
+							},
+							{
+								"name": "body_bytes_sent",
+								"type": "string"
+							},
+							{
+								"name": "proxy_host",
+								"type": "string"
+							},
+							{
+								"name": "ssl_cipher",
+								"type": "string"
+							},
+							{
+								"name": "upstream_response_length",
+								"type": "string"
+							},
+							{
+								"name": "upstream_connect_time",
+								"type": "string"
+							},
+							{
+								"name": "time_local",
+								"type": "string"
+							},
+							{
+								"name": "pipe",
+								"type": "string"
+							},
+							{
+								"name": "ssl_protocol",
+								"type": "string"
+							},
+							{
+								"name": "time_iso8601",
+								"type": "datetime"
+							},
+							{
+								"name": "upstream_header_time",
+								"type": "string"
+							},
+							{
+								"name": "upstream_cache_status",
+								"type": "string"
+							},
+							{
+								"name": "status",
+								"type": "int"
+							},
+							{
+								"name": "upstream_response_time",
+								"type": "string"
+							},
+							{
+								"name": "is_virtual",
+								"type": "boolean"
+							},
+							{
+								"name": "proxy_connection",
+								"type": "dynamic"
+							},
+							{
+								"name": "attack_connection",
+								"type": "dynamic"
+							},
+							{
+								"name": "action",
+								"type": "string"
+							},
+							{
+								"name": "msg",
+								"type": "string"
+							},
+							{
+								"name": "transport_type",
+								"type": "string"
+							},
+							{
+								"name": "sip_method",
+								"type": "string"
+							},
+							{
+								"name": "event_uuid",
+								"type": "string"
+							},
+							{
+								"name": "app_version",
+								"type": "string"
+							},
+							{
+								"name": "collected_method",
+								"type": "string"
+							},
+							{
+								"name": "called_number",
+								"type": "string"
+							},
+							{
+								"name": "created_by_node_id",
+								"type": "string"
+							},
+							{
+								"name": "sip_message",
+								"type": "string"
+							},
+							{
+								"name": "sip_user_agent",
+								"type": "string"
+							},
+							{
+								"name": "app_name",
+								"type": "string"
+							},
+							{
+								"name": "fatt_gquic",
+								"type": "dynamic"
+							},
+							{
+								"name": "fatt_rdp",
+								"type": "dynamic"
+							},
+							{
+								"name": "fatt_ssh",
+								"type": "dynamic"
+							},
+							{
+								"name": "fatt_tls",
+								"type": "dynamic"
+							},
+							{
+								"name": "level",
+								"type": "string"
+							},
+							{
+								"name": "accept_language",
+								"type": "datetime"
+							},
+							{
+								"name": "type",
+								"type": "string"
+							},
+							{
+								"name": "time",
+								"type": "datetime"
+							},
+							{
+								"name": "tags",
+								"type": "dynamic"
+							},
+							{
+								"name": "fatt_http",
+								"type": "dynamic"
+							},
+							{
+								"name": "id",
+								"type": "string"
+							},
+							{
+								"name": "aetitle",
+								"type": "string"
+							},
+							{
+								"name": "input",
+								"type": "string"
+							},
+							{
+								"name": "files",
+								"type": "string"
+							},
+							{
+								"name": "src_hostname",
+								"type": "string"
+							},
+							{
+								"name": "connection",
+								"type": "dynamic"
+							},
+							{
+								"name": "kexAlgs",
+								"type": "dynamic"
+							},
+							{
+								"name": "macCS",
+								"type": "dynamic"
+							},
+							{
+								"name": "compCS",
+								"type": "dynamic"
+							},
+							{
+								"name": "encCS",
+								"type": "dynamic"
+							},
+							{
+								"name": "langCS",
+								"type": "dynamic"
+							},
+							{
+								"name": "hassh",
+								"type": "string"
+							},
+							{
+								"name": "hasshAlgorithms",
+								"type": "string"
+							},
+							{
+								"name": "size",
+								"type": "int"
+							},
+							{
+								"name": "identifier",
+								"type": "string"
+							},
+							{
+								"name": "arch",
+								"type": "string"
+							},
+							{
+								"name": "ttylog",
+								"type": "string"
+							},
+							{
+								"name": "st",
+								"type": "string"
+							},
+							{
+								"name": "matches",
+								"type": "string"
+							},
+							{
+								"name": "session",
+								"type": "string"
+							},
+							{
+								"name": "version",
+								"type": "string"
+							},
+							{
+								"name": "duplicate",
+								"type": "boolean"
+							},
+							{
+								"name": "content_type",
+								"type": "string"
+							},
+							{
+								"name": "event_type",
+								"type": "string"
+							},
+							{
+								"name": "request_method",
+								"type": "string"
+							},
+							{
+								"name": "http_user_agent",
+								"type": "string"
+							},
+							{
+								"name": "public_ip",
+								"type": "string"
+							},
+							{
+								"name": "url",
+								"type": "string"
+							},
+							{
+								"name": "eventid",
+								"type": "string"
+							},
+							{
+								"name": "duration",
+								"type": "real"
+							},
+							{
+								"name": "password",
+								"type": "string"
+							},
+							{
+								"name": "username",
+								"type": "string"
+							},
+							{
+								"name": "message",
+								"type": "string"
+							},
+							{
+								"name": "sensor",
+								"type": "string"
+							},
+							{
+								"name": "bytes",
+								"type": "string"
+							},
+							{
+								"name": "sensorid",
+								"type": "string"
+							},
+							{
+								"name": "reason",
+								"type": "string"
+							},
+							{
+								"name": "request",
+								"type": "dynamic"
+							},
+							{
+								"name": "response",
+								"type": "dynamic"
+							},
+							{
+								"name": "ipp_query",
+								"type": "string"
+							},
+							{
+								"name": "data_type",
+								"type": "string"
+							},
+							{
+								"name": "path",
+								"type": "string"
+							},
+							{
+								"name": "data",
+								"type": "string"
+							},
+							{
+								"name": "request_uri",
+								"type": "string"
+							},
+							{
+								"name": "request_data",
+								"type": "string"
+							},
+							{
+								"name": "src_url",
+								"type": "string"
+							},
+							{
+								"name": "shasum",
+								"type": "string"
+							},
+							{
+								"name": "outfile",
+								"type": "string"
+							},
+							{
+								"name": "filename",
+								"type": "string"
+							},
+							{
+								"name": "unixtime",
+								"type": "int"
+							},
+							{
+								"name": "t-pot_ip_ext",
+								"type": "string"
+							},
+							{
+								"name": "fileinfoname",
+								"type": "string"
+							},
+							{
+								"name": "host",
+								"type": "string"
+							},
+							{
+								"name": "t-pot_ip_int",
+								"type": "string"
+							},
+							{
+								"name": "ip_rep",
+								"type": "string"
+							},
+							{
+								"name": "fileinfostate",
+								"type": "string"
+							},
+							{
+								"name": "httpmethod",
+								"type": "string"
+							},
+							{
+								"name": "mx",
+								"type": "string"
+							},
+							{
+								"name": "req_size",
+								"type": "int"
+							},
+							{
+								"name": "req_pkt",
+								"type": "string"
+							},
+							{
+								"name": "mode",
+								"type": "string"
+							},
+							{
+								"name": "resp_size",
+								"type": "int"
+							},
+							{
+								"name": "dns_name",
+								"type": "string"
+							},
+							{
+								"name": "dns_type",
+								"type": "string"
+							},
+							{
+								"name": "dns_cls",
+								"type": "string"
+							},
+							{
+								"name": "opcode",
+								"type": "int"
+							},
+							{
+								"name": "geoip",
+								"type": "dynamic"
+							},
+							{
+								"name": "t-pot_hostname",
+								"type": "string"
+							},
+							{
+								"name": "geoip_ext",
+								"type": "dynamic"
+							},
+							{
+								"name": "City",
+								"type": "string"
+							},
+							{
+								"name": "ASN",
+								"type": "string"
+							},
+							{
+								"name": "ls_timestamp",
+								"type": "datetime"
+							},
+							{
+								"name": "ls_version",
+								"type": "string"
+							},
+							{
+								"name": "protocol",
+								"type": "string"
+							}
+						]
+					}
+				},
+				"dataSources": {},
+				"destinations": {
+					"logAnalytics": [{
+						"workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('loganalyticsworkspacename'))]",
+						"name": "la-tpot-destination"
+					}]
+				},
+				"dataFlows": [{
+					"streams": [
+						"Custom-tpot_CL"
+					],
+					"destinations": [
+						"la-tpot-destination"
+					],
+					"transformKql": "source | extend TimeGenerated = todatetime(timestamp) | project-rename tpothostname = ['t-pot_hostname'], tpotextipaddr = ['t-pot_ip_ext'], tpotintipaddr = ['t-pot_ip_int'], tpottime = ['time'], tpotid = ['id'], tpotuuid = ['uuid'], honeypotType = type\n",
+					"outputStream": "Custom-tpot_CL"
+				}]
+			}
+		}
+	]
+}
