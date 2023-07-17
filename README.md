@@ -69,3 +69,7 @@ Review the [available honeypots architecture section](https://raw.githubusercont
 ## Network Security Group
 Please study the rules carefully. You may need to make some additional rules or modifications based on your needs and considerations. As an example if this is for internal private ip range detections you may want to remove rules and place a higher priority DENY rule preventing all the T-Pot ports and services being exposed internally, and then place a few ALLOW rules to your on-premise private ip address CIDR, other Hub Private IPs, and some Spoke Private IPs.
 ![enter image description here](https://raw.githubusercontent.com/swiftsolves-msft/Azure-TPot/main/images/nsg.png)
+
+## Post Install - Deploy Sentinel Ingestion for T-Pot alerts and logs
+
+Deploy the [Sentinel Components] (https://github.com/swiftsolves-msft/Azure-TPot/tree/main/sample/tpot_all/deployment) and for now [manually configure the T-Pot as follows](https://github.com/swiftsolves-msft/Azure-TPot/tree/main/sample/tpot_all#azure-vm-t-pot-configuration)
