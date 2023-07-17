@@ -8,4 +8,4 @@ The following deployment will deploy a Log analytics workspace with a defined *t
 
 ## Post Deployment
 
-Be sure to manually configure T-Pot to use Microsoft Sentinel, [see here for directions:](https://github.com/swiftsolves-msft/Azure-TPot/tree/main/sample/tpot_all#azure-vm-t-pot-configuration)
+Be sure to manually configure T-Pot to use Microsoft Sentinel, [see here for directions:](https://github.com/swiftsolves-msft/Azure-TPot/blob/main/sample/tpot_all/readme.md#azure-vm-t-pot-configuration)
