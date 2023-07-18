@@ -1,0 +1,35 @@
+packages:
+  - git
+
+runcmd:
+  - curl -sS --retry 5 https://github.com
+  - git clone https://github.com/telekom-security/tpotce /root/tpot
+  - /root/tpot/iso/installer/install.sh --type=auto --conf=/root/tpot.conf
+  - rm /root/tpot.conf
+  - /sbin/shutdown -r now
+  - sleep 1200
+  - docker exec -it logstash bash  
+  - cd /etc/logstash/  
+  - cp logstash.conf /data/elk/logstash.conf  
+  - exit
+  - systemctl stop tpot
+  # - add outpput plugin at /data/elk/logstash.conf 
+  - chmod 760 /data/elk/logstash.conf  
+  - chown tpot:tpot /data/elk/logstash.conf
+  # - update logstash docker build and symlink logstashconf in /data at /opt/tpot/etc/tpot.yml
+  # - update docker file to install logstash output plugin at /opt/tpot/docker/elk/logstash/Dockerfile
+  - systemctl start tpot
+
+password: w3b$ecrets2!
+chpasswd:
+  expire: false
+
+write_files:
+  - content: |
+      # tpot configuration file
+      myCONF_TPOT_FLAVOR='STANDARD'
+      myCONF_WEB_USER='webuser'
+      myCONF_WEB_PW='w3b$ecrets2!'
+    owner: root:root
+    path: /root/tpot.conf
+    permissions: '0600'
