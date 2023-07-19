@@ -1,0 +1,542 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"NSGName": {
+			"type": "string",
+			"metadata": {
+				"description": "The Network Security Group Name"
+			},
+			"defaultValue": "InternetTPot-NSG"
+		}
+		"MyConnectionIP": {
+			"type": "string",
+			"minLength": 7,
+			"maxLength": 15,
+			"metadata": {
+				"description": "The Public IP I will be connecting from to administer and configure"
+			},
+			"defaultValue": "XXX.XXX.XXX.XXX"
+		}
+	},
+	"variables": {},
+	"resources": [{
+		"name": "[parameters('NSGName')]",
+		"type": "Microsoft.Network/networkSecurityGroups",
+		"apiVersion": "2019-02-01",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"securityRules": [{
+					"name": "AllowAnyADBHoneyInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+						"destinationPortRange": "55",
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 900,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyCiscoASAUdpInbound",
+					"properties": {
+						"protocol": "Udp",
+						"sourcePortRange": "*",
+						"destinationPortRange": "5000",
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 905,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyCiscoASATcpInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+						"destinationPortRange": "8443",
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 906,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyCitrixHoneypotInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+						"destinationPortRange": "443",
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 910,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyConpotTcpInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+                        "destinationPortRanges": [
+                            "80",
+                            "102",
+                            "502",
+                            "1025",
+                            "2404",
+                            "10001",
+                            "44818",
+                            "47808",
+                            "50100"
+                        ],
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 915,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyConpotUdpInbound",
+					"properties": {
+						"protocol": "Udp",
+						"sourcePortRange": "*",
+                        "destinationPortRanges": [
+                            "161",
+                            "623"
+                        ],
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 916,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyCowrieInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+                        "destinationPortRanges": [
+                            "22",
+                            "23"
+                        ],
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 920,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyDdospotInbound",
+					"properties": {
+						"protocol": "Udp",
+						"sourcePortRange": "*",
+                        "destinationPortRanges": [
+                            "19",
+                            "53",
+                            "123",
+                            "1900"
+                        ],
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 925,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyDicompotInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+						"destinationPortRange": "11112",
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 930,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyDionaeaTcpInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+                        "destinationPortRanges": [
+                            "21",
+                            "42",
+                            "135",
+                            "443",
+                            "445",
+                            "1433",
+                            "1723",
+                            "1883",
+                            "3306",
+                            "8081"
+                        ],
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 935,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyDionaeaUdpInbound",
+					"properties": {
+						"protocol": "Udp",
+						"sourcePortRange": "*",
+						"destinationPortRange": "69",
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 936,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyElasticpotInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+						"destinationPortRange": "9200",
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 940,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyHeraldingInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+                        "destinationPortRanges": [
+                            "21",
+                            "22",
+                            "23",
+                            "25",
+                            "80",
+                            "110",
+                            "143",
+                            "443",
+                            "993",
+                            "995",
+                            "1080",
+                            "5432",
+                            "5900"
+                        ],
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 945,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyqHoneypotsTcpInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+                        "destinationPortRanges": [
+                            "21",
+                            "22",
+                            "23",
+                            "25",
+                            "80",
+                            "110",
+                            "143",
+                            "389",
+                            "443",
+                            "445",
+                            "1080",
+                            "1433",
+                            "1521",
+                            "3306",
+                            "5432",
+                            "5900",
+                            "6379",
+                            "8080",
+                            "9200",
+                            "11211"
+                        ],
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 950,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyqHoneypotsUdpInbound",
+					"properties": {
+						"protocol": "Udp",
+						"sourcePortRange": "*",
+                        "destinationPortRanges": [
+                            "51",
+                            "123",
+                            "161"
+                        ],
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 951,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyIPPHoneyInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+						"destinationPortRange": "631",
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 955,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyLog4PotInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+                        "destinationPortRanges": [
+                            "80",
+                            "443",
+                            "8080",
+                            "9200",
+                            "25565"
+                        ],
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 957,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyMailoneyInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+						"destinationPortRange": "25",
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 960,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyMedpotInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+						"destinationPortRange": "2575",
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 965,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnyRedishoneypotInbound",
+					"properties": {
+						"protocol": "Tcp",
+						"sourcePortRange": "*",
+						"destinationPortRange": "6379",
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 970,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAnySentryPeerInbound",
+					"properties": {
+						"protocol": "Udp",
+						"sourcePortRange": "*",
+						"destinationPortRange": "5060",
+						"sourceAddressPrefix": "*",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 975,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAzureCloud22Inbound",
+					"properties": {
+						"protocol": "*",
+						"sourcePortRange": "*",
+						"destinationPortRange": "22",
+						"sourceAddressPrefix": "AzureCloud",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 1011,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowCustom64294Inbound",
+					"properties": {
+						"protocol": "*",
+						"sourcePortRange": "*",
+						"destinationPortRange": "64294",
+						"sourceAddressPrefix": "[parameters('MyConnectionIP')]",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 1021,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowSSHCustom64295Inbound",
+					"properties": {
+						"protocol": "*",
+						"sourcePortRange": "*",
+						"destinationPortRange": "64295",
+						"sourceAddressPrefix": "[parameters('MyConnectionIP')]",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 1031,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAzureCloud64295Inbound",
+					"properties": {
+						"protocol": "*",
+						"sourcePortRange": "*",
+						"destinationPortRange": "64295",
+						"sourceAddressPrefix": "AzureCloud",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 1041,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowCustom64297Inbound",
+					"properties": {
+						"protocol": "*",
+						"sourcePortRange": "*",
+						"destinationPortRange": "64297",
+						"sourceAddressPrefix": "[parameters('MyConnectionIP')]",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 1051,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				},
+				{
+					"name": "AllowAllHomeOfficeCustomAnyInbound",
+					"properties": {
+						"protocol": "*",
+						"sourcePortRange": "*",
+						"destinationPortRange": "*",
+						"sourceAddressPrefix": "[parameters('MyConnectionIP')]",
+						"destinationAddressPrefix": "*",
+						"access": "Allow",
+						"priority": 1061,
+						"direction": "Inbound",
+						"sourcePortRanges": [],
+						"sourceAddressPrefixes": [],
+						"destinationAddressPrefixes": []
+					}
+				}
+			]
+		}
+	}],
+	"outputs": {}
+}
