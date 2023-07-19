@@ -1428,5 +1428,19 @@
 				}]
 			}
 		}
-	]
+	],
+	"outputs": {
+		"dcrimmutableid": {
+		  "type": "string",
+		  "value": "[reference(resourceId('Microsoft.Insights/dataCollectionRules', variables('tpotdcr'))).immutableId]"
+		},
+		"dcrstreamname": {
+			"type": "string",
+			"value": "[reference(resourceId('Microsoft.Insights/dataCollectionRules', variables('tpotdcr'))).dataFlows[0].outputStream"
+		},
+		"dceendpoint": {
+			"type": "string",
+			"value": "[reference(resourceId('Microsoft.Insights/dataCollectionEndpoints', variables('tpotdce'))).logsIngestion.endpoint"
+		  }
+	  }
 }
