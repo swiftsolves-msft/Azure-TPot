@@ -258,7 +258,8 @@
                         "managedDisk": {
                             "storageAccountType": "StandardSSD_LRS"
                         },
-                        "deleteOption": "Delete"
+                        "deleteOption": "Delete",
+                        "diskSizeGB": 128
                     },
                     "imageReference": {
                         "publisher": "debian",
