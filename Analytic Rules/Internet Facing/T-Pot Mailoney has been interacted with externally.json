@@ -1,0 +1,84 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "id": "[concat(resourceId('Microsoft.OperationalInsights/workspaces/providers', parameters('workspace'), 'Microsoft.SecurityInsights'),'/alertRules/55f78a92-fdae-44ac-a431-1bbbd171b824')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/55f78a92-fdae-44ac-a431-1bbbd171b824')]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
+            "kind": "Scheduled",
+            "apiVersion": "2022-11-01-preview",
+            "properties": {
+                "displayName": "T-Pot Mailoney has been interacted with externally",
+                "description": "T-Pot Mailoney Internet facing has been interacted with.",
+                "severity": "Informational",
+                "enabled": true,
+                "query": "tpot_CL\r\n| where honeypotType == \"Mailoney\"\r\n| extend senderaddress = extract(\"(?i)rcpt to:<(.*)>\", 1, data)\r\n| extend recipientaddress = extract(\"(?i)mail from:<(.*)>\", 1, data)\r\n| project TimeGenerated, src_ip, tpothostname, data, senderaddress, recipientaddress\r\n| extend timestamp = TimeGenerated, HostName = tpothostname",
+                "queryFrequency": "PT5M",
+                "queryPeriod": "PT5M",
+                "triggerOperator": "GreaterThan",
+                "triggerThreshold": 0,
+                "suppressionDuration": "PT5H",
+                "suppressionEnabled": false,
+                "startTimeUtc": null,
+                "tactics": [],
+                "techniques": [],
+                "alertRuleTemplateName": null,
+                "incidentConfiguration": {
+                    "createIncident": true,
+                    "groupingConfiguration": {
+                        "enabled": false,
+                        "reopenClosedIncident": false,
+                        "lookbackDuration": "PT5H",
+                        "matchingMethod": "AllEntities",
+                        "groupByEntities": [],
+                        "groupByAlertDetails": [],
+                        "groupByCustomDetails": []
+                    }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
+                },
+                "alertDetailsOverride": {
+                    "alertDynamicProperties": []
+                },
+                "customDetails": null,
+                "entityMappings": [
+                    {
+                        "entityType": "IP",
+                        "fieldMappings": [
+                            {
+                                "identifier": "Address",
+                                "columnName": "src_ip"
+                            }
+                        ]
+                    },
+                    {
+                        "entityType": "MailMessage",
+                        "fieldMappings": [
+                            {
+                                "identifier": "Sender",
+                                "columnName": "senderaddress"
+                            },
+                            {
+                                "identifier": "Recipient",
+                                "columnName": "recipientaddress"
+                            },
+                            {
+                                "identifier": "SenderIP",
+                                "columnName": "src_ip"
+                            }
+                        ]
+                    }
+                ],
+                "sentinelEntitiesMappings": null,
+                "templateVersion": null
+            }
+        }
+    ]
+}

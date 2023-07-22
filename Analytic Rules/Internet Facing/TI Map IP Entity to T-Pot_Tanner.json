@@ -46,7 +46,17 @@
                 },
                 "alertDetailsOverride": null,
                 "customDetails": {},
-                "entityMappings": null,
+                "entityMappings": [
+                    {
+                        "entityType": "IP",
+                        "fieldMappings": [
+                            {
+                                "identifier": "Address",
+                                "columnName": "src_ip"
+                            }
+                        ]
+                    }
+                ],
                 "sentinelEntitiesMappings": null,
                 "templateVersion": null
             }
