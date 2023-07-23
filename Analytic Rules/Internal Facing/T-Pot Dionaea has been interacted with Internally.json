@@ -8,17 +8,17 @@
     },
     "resources": [
         {
-            "id": "[concat(resourceId('Microsoft.OperationalInsights/workspaces/providers', parameters('workspace'), 'Microsoft.SecurityInsights'),'/alertRules/72344620-45a2-43a9-876f-6a9194f560ba')]",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/72344620-45a2-43a9-876f-6a9194f560ba')]",
+            "id": "[concat(resourceId('Microsoft.OperationalInsights/workspaces/providers', parameters('workspace'), 'Microsoft.SecurityInsights'),'/alertRules/48a97729-f9c6-40b6-b489-436a373def24')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/48a97729-f9c6-40b6-b489-436a373def24')]",
             "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
             "kind": "Scheduled",
             "apiVersion": "2022-11-01-preview",
             "properties": {
-                "displayName": "T-Pot Cowrie has been interacted with Internally",
-                "description": "T-Pot Cowrie internal facing has been interacted with.\n\nCowrie is a medium to high interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker.",
+                "displayName": "T-Pot Dionaea has been interacted with Internally",
+                "description": "T-Pot Dionaea internal facing has been interacted with\n\ndionaea intention is to trap malware exploiting vulnerabilities exposed by services offered to a network, the ultimate goal is gaining a copy of the malware.",
                 "severity": "Medium",
                 "enabled": true,
-                "query": "tpot_CL\r\n| where honeypotType == \"Cowrie\"\r\n| where ipv4_is_private(src_ip)\r\n| project TimeGenerated, tpothostname, session, eventid, src_ip, username, password, message, input, outfile, shasum, url\r\n| sort by TimeGenerated asc\r\n",
+                "query": "tpot_CL\r\n| where honeypotType == \"Dionaea\"\r\n| where ipv4_is_private(src_ip)\r\n| extend protocol = tostring(connection.protocol)\r\n| extend transport = tostring(connection.transport)\r\n| extend type = tostring(connection.type)\r\n| project TimeGenerated, src_ip, tpothostname, protocol, transport, type, ftp, username, password\r\n| extend timestamp = TimeGenerated, HostName = tpothostname\r\n| sort by TimeGenerated asc",
                 "queryFrequency": "PT5M",
                 "queryPeriod": "PT5M",
                 "triggerOperator": "GreaterThan",
@@ -47,10 +47,7 @@
                     "aggregationKind": "SingleAlert"
                 },
                 "alertDetailsOverride": null,
-                "customDetails": {
-                    "Username": "username",
-                    "Password": "password"
-                },
+                "customDetails": {},
                 "entityMappings": [
                     {
                         "entityType": "IP",
@@ -67,42 +64,6 @@
                             {
                                 "identifier": "Name",
                                 "columnName": "username"
-                            }
-                        ]
-                    },
-                    {
-                        "entityType": "FileHash",
-                        "fieldMappings": [
-                            {
-                                "identifier": "Value",
-                                "columnName": "shasum"
-                            }
-                        ]
-                    },
-                    {
-                        "entityType": "URL",
-                        "fieldMappings": [
-                            {
-                                "identifier": "Url",
-                                "columnName": "url"
-                            }
-                        ]
-                    },
-                    {
-                        "entityType": "Process",
-                        "fieldMappings": [
-                            {
-                                "identifier": "CommandLine",
-                                "columnName": "input"
-                            }
-                        ]
-                    },
-                    {
-                        "entityType": "File",
-                        "fieldMappings": [
-                            {
-                                "identifier": "Name",
-                                "columnName": "outfile"
                             }
                         ]
                     },

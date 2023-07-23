@@ -8,17 +8,17 @@
     },
     "resources": [
         {
-            "id": "[concat(resourceId('Microsoft.OperationalInsights/workspaces/providers', parameters('workspace'), 'Microsoft.SecurityInsights'),'/alertRules/72344620-45a2-43a9-876f-6a9194f560ba')]",
-            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/72344620-45a2-43a9-876f-6a9194f560ba')]",
+            "id": "[concat(resourceId('Microsoft.OperationalInsights/workspaces/providers', parameters('workspace'), 'Microsoft.SecurityInsights'),'/alertRules/c8227f42-2ddd-474c-8df5-0bd9c404ad27')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/c8227f42-2ddd-474c-8df5-0bd9c404ad27')]",
             "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
             "kind": "Scheduled",
             "apiVersion": "2022-11-01-preview",
             "properties": {
-                "displayName": "T-Pot Cowrie has been interacted with Internally",
-                "description": "T-Pot Cowrie internal facing has been interacted with.\n\nCowrie is a medium to high interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker.",
+                "displayName": "T-Pot Mailoney has been interacted with Internally",
+                "description": "T-Pot Mailoney internal facing has been interacted with\n\nMailoney is a SMTP Honeypot written just to have fun learning Python. There are various modules or types (see below) that provide custom modes to fit your needs.",
                 "severity": "Medium",
                 "enabled": true,
-                "query": "tpot_CL\r\n| where honeypotType == \"Cowrie\"\r\n| where ipv4_is_private(src_ip)\r\n| project TimeGenerated, tpothostname, session, eventid, src_ip, username, password, message, input, outfile, shasum, url\r\n| sort by TimeGenerated asc\r\n",
+                "query": "tpot_CL\r\n| where honeypotType == \"Mailoney\"\r\n| where ipv4_is_private(src_ip)\r\n| extend senderaddress = extract(\"(?i)rcpt to:<(.*)>\", 1, data)\r\n| extend recipientaddress = extract(\"(?i)mail from:<(.*)>\", 1, data)\r\n| project TimeGenerated, src_ip, tpothostname, data, senderaddress, recipientaddress\r\n| extend timestamp = TimeGenerated, HostName = tpothostname\r\n| sort by TimeGenerated asc",
                 "queryFrequency": "PT5M",
                 "queryPeriod": "PT5M",
                 "triggerOperator": "GreaterThan",
@@ -47,10 +47,7 @@
                     "aggregationKind": "SingleAlert"
                 },
                 "alertDetailsOverride": null,
-                "customDetails": {
-                    "Username": "username",
-                    "Password": "password"
-                },
+                "customDetails": null,
                 "entityMappings": [
                     {
                         "entityType": "IP",
@@ -62,47 +59,19 @@
                         ]
                     },
                     {
-                        "entityType": "Account",
+                        "entityType": "MailMessage",
                         "fieldMappings": [
                             {
-                                "identifier": "Name",
-                                "columnName": "username"
-                            }
-                        ]
-                    },
-                    {
-                        "entityType": "FileHash",
-                        "fieldMappings": [
+                                "identifier": "Sender",
+                                "columnName": "senderaddress"
+                            },
                             {
-                                "identifier": "Value",
-                                "columnName": "shasum"
-                            }
-                        ]
-                    },
-                    {
-                        "entityType": "URL",
-                        "fieldMappings": [
+                                "identifier": "Recipient",
+                                "columnName": "recipientaddress"
+                            },
                             {
-                                "identifier": "Url",
-                                "columnName": "url"
-                            }
-                        ]
-                    },
-                    {
-                        "entityType": "Process",
-                        "fieldMappings": [
-                            {
-                                "identifier": "CommandLine",
-                                "columnName": "input"
-                            }
-                        ]
-                    },
-                    {
-                        "entityType": "File",
-                        "fieldMappings": [
-                            {
-                                "identifier": "Name",
-                                "columnName": "outfile"
+                                "identifier": "SenderIP",
+                                "columnName": "src_ip"
                             }
                         ]
                     },
