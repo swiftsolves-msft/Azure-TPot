@@ -1,0 +1,15 @@
+name: AttackerCommandAnalysis
+description: What commands did attackers run after gaining SSH access
+KQL query:
+  - query: |
+      tpot_CL
+        | where honeypotType == "Cowrie"
+        | where eventid == "cowrie.command.input" or eventid == "cowrie.command.failed"
+        | where isnotempty(input)
+        | summarize 
+            TimesUsed = count(),
+            UniqueAttackers = dcount(src_ip)
+            by input
+        | order by TimesUsed desc
+        | take 50
+Parameters:

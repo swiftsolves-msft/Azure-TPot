@@ -1,0 +1,16 @@
+name: CountryHeatMap
+description: Attack volume by country for geographic threat intelligence, used to create heatmap
+KQL query:
+  - query: |
+      tpot_CL
+      | where TimeGenerated > ago(24h)
+      | extend Country = tostring(geoip.country_name)
+      | where isnotempty(Country)
+      | summarize 
+          Events = count(),
+          UniqueIPs = dcount(src_ip),
+          Honeypots = make_set(honeypotType, 10),
+          MalwareDrops = countif(isnotempty(shasum))
+          by Country
+      | order by Events desc
+Parameters:

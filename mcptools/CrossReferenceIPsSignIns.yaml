@@ -1,0 +1,14 @@
+name: CrossReferenceIPsSignIns
+description: Cross-reference T-Pot attacker IPs against Entra sign-ins 
+KQL query:
+  - query: |
+      let honeypot_attackers = tpot_CL
+      | where TimeGenerated > ago(7d)
+      | where isnotempty(shasum) or event_type == "alert"
+      | distinct src_ip;
+      SigninLogs
+      | where TimeGenerated > ago(7d)
+      | where IPAddress in (honeypot_attackers)
+      | project TimeGenerated, IPAddress, UserPrincipalName, ResultType, AppDisplayName, Location
+      | order by TimeGenerated desc
+Parameters:

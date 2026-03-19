@@ -1,0 +1,18 @@
+name: IoTAttackMonitor
+description: Monitor Android Debug Bridge, MQTT, and other IoT honeypots
+KQL query:
+  - query: |
+      tpot_CL
+      | where honeypotType in ("Adbhoney", "Ciscoasa")
+      // Filter out events from Tpot itself, update the public ip of tpot to filter out noise
+      | where src_ip != "144.91.81.120" and src_ip != "" and src_ip != "0.0.0.0" and src_ip !contains "2a02:c207:2314:9811" 
+          or isnotempty(tostring(mqtt))
+          or dest_port in ("5555", "1883", "8883")
+      | extend Country = tostring(geoip.country_name)
+      | summarize 
+          Events = count(),
+          HasMalware = countif(isnotempty(shasum)),
+          MalwareHashes = make_set(shasum, 5)
+          by src_ip, Country, honeypotType
+      | order by Events desc
+Parameters:

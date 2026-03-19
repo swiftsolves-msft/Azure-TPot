@@ -1,0 +1,13 @@
+name: WebAttackPathTransversal
+description: Detect web attacks: path traversal, SQL injection, RCE attempts
+KQL query:
+  - query: |
+      tpot_CL
+      | where isnotempty(request_uri) or isnotempty(url)
+      | extend URI = coalesce(request_uri, url)
+      | where URI matches regex @"(\.\./|\.\.\\|/etc/passwd|/proc/|cmd\.exe|powershell|wget |curl |<script|UNION.*SELECT|' OR '|eval\(|exec\(|/shell|/cgi-bin)"
+          or status == 403 or status == 500
+      | extend Country = tostring(geoip.country_name)
+      | project TimeGenerated, src_ip, Country, honeypotType, request_method, URI, http_user_agent, status
+      | order by TimeGenerated desc
+Parameters:

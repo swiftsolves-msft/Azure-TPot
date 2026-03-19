@@ -1,0 +1,15 @@
+name: SuspiciousUserAgentTracker
+description: Identify non-browser automated tools hitting your honeypots
+KQL query:
+  - query: |
+      tpot_CL
+      | where isnotempty(http_user_agent)
+      | where http_user_agent !has "Mozilla" and http_user_agent !has "Chrome" and http_user_agent !has "Safari"
+      | summarize 
+          Hits = count(),
+          UniqueIPs = dcount(src_ip),
+          SampleIPs = make_set(src_ip, 5),
+          URIs = make_set(coalesce(request_uri, url), 10)
+          by http_user_agent
+      | order by Hits desc
+Parameters:

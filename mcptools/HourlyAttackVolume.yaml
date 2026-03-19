@@ -1,0 +1,14 @@
+name: HourlyAttackVolume
+description: Baseline attack volume by hour to detect spikes
+KQL query:
+  - query: |
+      tpot_CL
+      | where TimeGenerated > ago(7d)
+      | summarize 
+          TotalEvents = count(),
+          UniqueAttackers = dcount(src_ip),
+          MalwareDrops = countif(isnotempty(shasum)),
+          IDSAlerts = countif(event_type == "alert")
+          by bin(TimeGenerated, 1h)
+      | order by TimeGenerated asc
+Parameters:

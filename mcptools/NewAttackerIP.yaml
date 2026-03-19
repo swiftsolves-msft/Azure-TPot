@@ -1,0 +1,19 @@
+name: NewAttackerIP
+description: Detects IPs appearing for the first time in the last 24h
+KQL query:
+  - query: |
+      let known_ips = tpot_CL
+        | where TimeGenerated between(ago(30d) .. ago(1d))
+        | distinct src_ip;
+      tpot_CL
+        | where TimeGenerated > ago(1d)
+        | where src_ip !in (known_ips)
+        | extend Country = tostring(geoip.country_name),
+         ASN_ = tostring(geoip.asn)
+        | summarize 
+          Events = count(),
+          Honeypots = make_set(honeypotType, 10),
+          FirstSeen = min(TimeGenerated)
+          by src_ip, Country, ASN_
+      | order by Events desc
+Parameters:
