@@ -23,7 +23,7 @@ The next steps will involve updating Azure VM T-Pot to install_microsoft-sentine
     ```
     docker exec -it logstash bash  
     cd /etc/logstash/  
-    cp logstash.conf /tpotce/data/elk/logstash.conf  
+    cp logstash.conf /data/elk/logstash.conf  
     exit
     ```
     
