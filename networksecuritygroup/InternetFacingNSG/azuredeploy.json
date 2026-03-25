@@ -8,7 +8,7 @@
 				"description": "The Network Security Group Name"
 			},
 			"defaultValue": "InternetTPot-NSG"
-		}
+		},
 		"MyConnectionIP": {
 			"type": "string",
 			"minLength": 7,
